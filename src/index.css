@@ -131,6 +131,25 @@
     /* 61.8% / 38.2% reversed golden ratio split */
     grid-template-columns: 61.8fr 38.2fr;
   }
+
+  /* Sacred Geometry Continuous Grids */
+  .bg-grid-gold {
+    background-image: linear-gradient(rgba(201, 169, 97, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 169, 97, 0.06) 1px, transparent 1px);
+    background-size: 55px 55px;
+    background-attachment: fixed;
+  }
+
+  .bg-grid-silver {
+    background-image: linear-gradient(rgba(232, 232, 232, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 232, 232, 0.04) 1px, transparent 1px);
+    background-size: 89px 89px;
+    background-attachment: fixed;
+  }
+
+  .bg-grid-dense {
+    background-image: linear-gradient(rgba(201, 169, 97, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 169, 97, 0.03) 1px, transparent 1px);
+    background-size: 34px 34px;
+    background-attachment: fixed;
+  }
 }
 
 /* Global SVG Noise Overlay */

@@ -41,7 +41,9 @@ const FaqAndFooter = () => {
     return (
         <>
             {/* FAQ SECTION */}
-            <section id="въпроси" className="w-full bg-rt-void py-32 px-4 md:px-8 flex flex-col items-center">
+            <section id="въпроси" className="w-full bg-rt-void py-32 px-4 md:px-8 flex flex-col items-center relative overflow-hidden">
+                {/* Continuous Sacred Geometry Grid */}
+                <div className="absolute inset-0 z-0 bg-grid-silver pointer-events-none opacity-50 mix-blend-overlay" />
                 <div className="max-w-3xl mx-auto w-full">
                     <h2 className="font-cormorant italic font-bold text-rt-silver text-4xl md:text-5xl mb-16 text-center">Преди да вземеш решение.</h2>
                     <div className="flex flex-col gap-4">

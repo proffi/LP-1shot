@@ -31,8 +31,10 @@ const SolutionReveal = () => {
     return (
         <section
             ref={containerRef}
-            className="w-full bg-[#0c1018] py-[144px] px-8 md:px-16 border-t border-rt-gold/10"
+            className="w-full bg-[#0c1018] py-[144px] px-8 md:px-16 border-t border-rt-gold/10 relative overflow-hidden"
         >
+            {/* Continuous Sacred Geometry Grid */}
+            <div className="absolute inset-0 z-0 bg-grid-gold pointer-events-none opacity-70 mix-blend-overlay" />
             <div
                 ref={contentRef}
                 className="max-w-4xl mx-auto flex flex-col items-center text-center"
