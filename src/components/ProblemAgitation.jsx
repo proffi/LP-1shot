@@ -31,10 +31,10 @@ const ProblemAgitation = () => {
     return (
         <section
             ref={containerRef}
-            className="w-full bg-[radial-gradient(ellipse_at_center,_#2A1A10_0%,_var(--color-rt-obsidian)_100%)] py-[144px] px-8 md:px-16 border-y border-rt-gold-dim/30 relative overflow-hidden"
+            className="w-full bg-rt-void py-[144px] px-8 md:px-16 border-y border-rt-gold-dim/30 relative overflow-hidden"
         >
             {/* Continuous Sacred Geometry Grid */}
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-80 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(201, 169, 97, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 169, 97, 0.15) 1px, transparent 1px)', backgroundSize: '34px 34px', backgroundAttachment: 'fixed' }} />
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-20 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(201, 169, 97, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 169, 97, 0.2) 1px, transparent 1px)', backgroundSize: '34px 34px' }} />
 
             {/* Strong Warning Glow for Agitation */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-full bg-[radial-gradient(ellipse_at_top,_rgba(201,169,97,0.15)_0%,_transparent_70%)] pointer-events-none" />

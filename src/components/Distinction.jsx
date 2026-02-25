@@ -96,10 +96,10 @@ const Distinction = () => {
         <section
             ref={containerRef}
             id="разликата"
-            className="relative w-full bg-gradient-to-b from-rt-void to-[#0A1015] py-[144px] px-8 md:px-16 overflow-hidden"
+            className="relative w-full bg-rt-void py-[144px] px-8 md:px-16 overflow-hidden"
         >
             {/* Continuous Sacred Geometry Grid */}
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-60 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(232, 232, 232, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 232, 232, 0.1) 1px, transparent 1px)', backgroundSize: '89px 89px', backgroundAttachment: 'fixed' }} />
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-20 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(232, 232, 232, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 232, 232, 0.2) 1px, transparent 1px)', backgroundSize: '89px 89px' }} />
 
             {/* Glowing Split Divider Background */}
             <div className="absolute top-0 bottom-0 left-1/2 w-[1px] bg-gradient-to-b from-transparent via-rt-gold/20 to-transparent shadow-[0_0_30px_rgba(201,169,97,0.4)] pointer-events-none hidden md:block" />

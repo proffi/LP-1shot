@@ -63,10 +63,10 @@ const ComparisonTable = () => {
     return (
         <section
             id="разликата"
-            className="w-full bg-[#05070a] py-32 px-4 md:px-16 relative overflow-hidden"
+            className="w-full bg-rt-void py-32 px-4 md:px-16 relative overflow-hidden"
         >
             {/* Continuous Sacred Geometry Grid */}
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-80 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(201, 169, 97, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 169, 97, 0.15) 1px, transparent 1px)', backgroundSize: '34px 34px', backgroundAttachment: 'fixed' }} />
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-20 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(201, 169, 97, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 169, 97, 0.2) 1px, transparent 1px)', backgroundSize: '34px 34px' }} />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,_rgba(201,169,97,0.15)_0%,_transparent_70%)] pointer-events-none" />
             <div className="max-w-5xl mx-auto flex flex-col items-center">
 

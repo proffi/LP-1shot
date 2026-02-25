@@ -43,7 +43,7 @@ const FaqAndFooter = () => {
             {/* FAQ SECTION */}
             <section id="въпроси" className="w-full bg-rt-void py-32 px-4 md:px-8 flex flex-col items-center relative overflow-hidden">
                 {/* Continuous Sacred Geometry Grid */}
-                <div className="absolute inset-0 z-0 pointer-events-none opacity-50 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(232, 232, 232, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 232, 232, 0.1) 1px, transparent 1px)', backgroundSize: '89px 89px', backgroundAttachment: 'fixed' }} />
+                <div className="absolute inset-0 z-0 pointer-events-none opacity-20 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(232, 232, 232, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 232, 232, 0.2) 1px, transparent 1px)', backgroundSize: '89px 89px' }} />
                 <div className="max-w-3xl mx-auto w-full">
                     <h2 className="font-cormorant italic font-bold text-rt-silver text-4xl md:text-5xl mb-16 text-center">Преди да вземеш решение.</h2>
                     <div className="flex flex-col gap-4">
