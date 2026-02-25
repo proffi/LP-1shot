@@ -94,7 +94,7 @@ const ProcessTimeline = () => {
             ref={containerRef}
             id="системата"
             className="relative w-full py-32 overflow-hidden border-y border-rt-silver-dim/10"
-            style={{ backgroundColor: '#000000' }}
+            style={{ backgroundColor: 'transparent' }}
         >
             {/* Layer 2: Full-Viewport Grid (The Protocol Matrix) */}
             <div className="absolute inset-0 z-0 pointer-events-none opacity-40 mix-blend-screen" style={{
