@@ -1,41 +1,106 @@
+/* stylelint-disable */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@400&family=Plus+Jakarta+Sans:wght@700&family=JetBrains+Mono:wght@400&display=swap');
 
 @import "tailwindcss";
 
+:root {
+  /* PRIMARY */
+  --void: #0A0E1A;
+  /* Deep navy-black. Dominant background. */
+  --obsidian: #000000;
+  /* Pure black for high-contrast sections. */
+
+  /* METALS (The only accents) */
+  --gold: #C9A961;
+  /* Sacred geometry, CTAs, Book 2, emphasis. */
+  --gold-bright: #D4A843;
+  /* CTA hover, urgency, highlights. */
+  --gold-dim: rgba(201, 169, 97, 0.15);
+  /* Borders, glows, subtle accents. */
+  --silver: #E8E8E8;
+  /* Book 1 identity, secondary text, mirror. */
+  --silver-dim: rgba(232, 232, 232, 0.3);
+  /* Faint structural elements. */
+
+  /* TEXT */
+  --cream: #F0EDE4;
+  /* Primary body text on dark backgrounds. */
+  --ash: #8A8A8A;
+  /* Metadata, captions, secondary info. */
+  --ash-dim: #5A5A5A;
+  /* Tertiary text, disabled states. */
+
+  /* SURFACES */
+  --surface: #1A1A1A;
+  /* Elevated cards, FAQ items, inputs. */
+  --surface-hover: #222222;
+  /* Card hover state. */
+
+  /* FUNCTIONAL */
+  --success: #4A7C59;
+  /* "System Active" indicator, checkmarks. */
+  --strikethrough: #CC4444;
+  /* Competitor "X" marks, crossed prices. */
+
+  /* Spacing */
+  --sp-1: 5px;
+  --sp-2: 8px;
+  --sp-3: 13px;
+  --sp-4: 21px;
+  --sp-5: 34px;
+  --sp-6: 55px;
+  --sp-7: 89px;
+  --sp-8: 144px;
+}
+
 @theme {
-  --color-rt-void: #0A0E1A;
-  --color-rt-obsidian: #000000;
-  --color-rt-gold: #C9A961;
-  --color-rt-silver: #E8E8E8;
-  --color-rt-cream: #FDFBFC;
-  --color-rt-ash: #A8A8A8;
-  --color-rt-amber: #D4A843;
-  --color-rt-charcoal: #1A1A1A;
+  --color-void: var(--void);
+  --color-obsidian: var(--obsidian);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-dim: var(--gold-dim);
+  --color-silver: var(--silver);
+  --color-silver-dim: var(--silver-dim);
+  --color-cream: var(--cream);
+  --color-ash: var(--ash);
+  --color-ash-dim: var(--ash-dim);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-success: var(--success);
+  --color-strikethrough: var(--strikethrough);
 
-  --font-cormorant: "Cormorant Garamond", serif;
-  --font-jakarta: "Plus Jakarta Sans", sans-serif;
-  --font-outfit: "Outfit", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+  --font-data: 'JetBrains Mono', 'Courier New', monospace;
 
-  /* Fibonacci Spacing */
-  --spacing-fib-1: 5px;
-  --spacing-fib-2: 8px;
-  --spacing-fib-3: 13px;
-  --spacing-fib-4: 21px;
-  --spacing-fib-5: 34px;
-  --spacing-fib-6: 55px;
-  --spacing-fib-7: 89px;
-  --spacing-fib-8: 144px;
+  --spacing-fib-1: var(--sp-1);
+  --spacing-fib-2: var(--sp-2);
+  --spacing-fib-3: var(--sp-3);
+  --spacing-fib-4: var(--sp-4);
+  --spacing-fib-5: var(--sp-5);
+  --spacing-fib-6: var(--sp-6);
+  --spacing-fib-7: var(--sp-7);
+  --spacing-fib-8: var(--sp-8);
 }
 
 @layer base {
   body {
-    @apply bg-rt-void text-rt-cream font-outfit antialiased selection:bg-rt-gold/30 selection:text-rt-cream;
-    /* Custom Scrollbar disabled completely to use our custom golden scroll layer */
+    background-color: var(--void);
+    color: var(--cream);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Custom Scrollbar disabled completely */
     -ms-overflow-style: none;
     /* IE and Edge */
     scrollbar-width: none;
     /* Firefox */
+  }
+
+  body::selection {
+    background-color: var(--gold-dim);
+    color: var(--cream);
   }
 
   body::-webkit-scrollbar {
@@ -49,7 +114,8 @@
   h4,
   h5,
   h6 {
-    @apply font-jakarta tracking-[-0.02em];
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
   }
 }
 
@@ -64,34 +130,6 @@
     display: grid;
     /* 61.8% / 38.2% reversed golden ratio split */
     grid-template-columns: 61.8fr 38.2fr;
-  }
-
-  .fib-gap-1 {
-    gap: var(--spacing-fib-1);
-  }
-
-  .fib-gap-2 {
-    gap: var(--spacing-fib-2);
-  }
-
-  .fib-gap-3 {
-    gap: var(--spacing-fib-3);
-  }
-
-  .fib-gap-4 {
-    gap: var(--spacing-fib-4);
-  }
-
-  .fib-gap-5 {
-    gap: var(--spacing-fib-5);
-  }
-
-  .fib-gap-6 {
-    gap: var(--spacing-fib-6);
-  }
-
-  .fib-gap-7 {
-    gap: var(--spacing-fib-7);
   }
 }
 
@@ -120,9 +158,9 @@
   top: 50%;
   left: 0;
   width: 0%;
-  height: 1px;
-  background-color: var(--color-rt-ash);
-  transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  height: 2px;
+  background-color: var(--strikethrough);
+  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .strike-animate.struck {
@@ -146,7 +184,7 @@
   left: 0;
   width: 0%;
   height: 2px;
-  background-color: var(--color-rt-gold);
+  background-color: var(--gold);
   transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 

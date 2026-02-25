@@ -1,13 +1,24 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// V2 Components
+import Preloader from './components/Preloader';
+import Watermark from './components/Watermark';
+import ExitIntentOverlay from './components/ExitIntentOverlay';
+import StickyMobileCTA from './components/StickyMobileCTA';
+
+// Section Components
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Distinction from './components/Distinction';
+import ProblemAgitation from './components/ProblemAgitation';
+import SolutionReveal from './components/SolutionReveal';
 import BooksShowcase from './components/BooksShowcase';
 import ProcessTimeline from './components/ProcessTimeline';
 import Philosophy from './components/Philosophy';
-import SocialProofAndComparison from './components/SocialProofAndComparison';
+import ContentPreview from './components/ContentPreview';
+import ComparisonTable from './components/ComparisonTable';
 import FaqAndFooter from './components/FaqAndFooter';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -46,35 +57,48 @@ function App() {
 
   return (
     <div ref={appRef} className="relative min-h-screen bg-rt-void text-rt-cream overflow-x-hidden">
+
+      {/* 
+        <!-- 369 | φ | 1.618 | Fibonacci | Моят свят се грижи за мен. --> 
+        <!-- Числата не са случайни. Нищо тук не е случайно. -->
+        <!-- 141:228 = 1:1.618 -->
+      */}
+
+      <Preloader />
+      <Watermark />
+      <ExitIntentOverlay />
+
       {/* Global CSS Noise Overlay */}
-      <div className="noise-overlay fixed inset-0 pointer-events-none z-[9999]">
+      <div className="noise-overlay fixed inset-0 pointer-events-none z-[8000]">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full opacity-100">
           <filter id="noiseFilter">
-            <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" />
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" />
           </filter>
           <rect width="100%" height="100%" filter="url(#noiseFilter)" />
         </svg>
       </div>
 
       {/* Golden Scroll Indicator */}
-      <div className="fixed top-0 right-0 w-[2px] h-full bg-rt-charcoal z-[9998]">
+      <div className="fixed top-0 right-0 w-[2px] h-full bg-transparent z-[9998]">
         <div ref={scrollIndicatorRef} className="w-full h-0 bg-rt-gold" />
       </div>
-
-      {/* Global Easter Egg hidden in source */}
-      {/* 369 | φ | 1.618 | Fibonacci | Моят свят се грижи за мен. */}
 
       <Navbar />
 
       <main>
         <Hero />
         <Distinction />
+        <ProblemAgitation />
+        <SolutionReveal />
         <BooksShowcase />
         <ProcessTimeline />
         <Philosophy />
-        <SocialProofAndComparison />
+        <ContentPreview />
+        <ComparisonTable />
         <FaqAndFooter />
       </main>
+
+      <StickyMobileCTA />
     </div>
   );
 }

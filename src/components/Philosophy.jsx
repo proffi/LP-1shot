@@ -6,118 +6,78 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Philosophy = () => {
     const sectionRef = useRef(null);
-    const textLeftRef = useRef(null);
-    const textRightRef = useRef(null);
-    const conclusionRef = useRef(null);
-    const bgRef = useRef(null);
+    const contentRef = useRef(null);
+    const splitLineRef = useRef(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Background Parallax
-            gsap.fromTo(bgRef.current,
-                { yPercent: -15 },
+            // Animating the dividing line
+            gsap.fromTo(splitLineRef.current,
+                { height: "0%" },
                 {
-                    yPercent: 15,
-                    ease: "none",
+                    height: "100%",
+                    duration: 1.618,
+                    ease: "power2.inOut",
                     scrollTrigger: {
                         trigger: sectionRef.current,
-                        start: "top bottom",
-                        end: "bottom top",
-                        scrub: true
+                        start: "top 60%"
                     }
                 }
             );
 
-            // Split Text GSAP reveals
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 40%",
+            // Fading in text elements
+            gsap.fromTo(contentRef.current.children,
+                { autoAlpha: 0, y: 34 },
+                {
+                    autoAlpha: 1,
+                    y: 0,
+                    duration: 1,
+                    stagger: 0.2,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top 50%"
+                    }
                 }
-            });
-
-            tl.fromTo(textLeftRef.current,
-                { x: -55, autoAlpha: 0 },
-                { x: 0, autoAlpha: 1, duration: 1.2, ease: "power2.out" }
-            )
-                .fromTo(textRightRef.current,
-                    { x: 55, autoAlpha: 0 },
-                    { x: 0, autoAlpha: 1, duration: 1.2, ease: "power2.out" },
-                    "-=0.6"
-                )
-                .fromTo(conclusionRef.current,
-                    { y: 34, autoAlpha: 0 },
-                    { y: 0, autoAlpha: 1, duration: 1, ease: "power3.out" },
-                    "+=0.8" // automatic delay to emphasize the conclusion
-                )
-                .to(conclusionRef.current.querySelector('.gold-sweep'),
-                    { className: "+=gold-sweep active" },
-                    "-=0.2"
-                );
-
+            );
         }, sectionRef);
+
         return () => ctx.revert();
     }, []);
 
     return (
         <section
             ref={sectionRef}
-            className="relative w-full py-48 bg-rt-obsidian overflow-hidden"
+            className="w-full bg-rt-void py-[144px] px-8 md:px-16 border-y border-rt-silver-dim/10 relative"
         >
-            {/* Background Image / Generative geometry hint */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-                <div ref={bgRef} className="w-full h-[130%] -top-[15%] relative opacity-20"
-                    style={{
-                        backgroundImage: 'url("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop")',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        mixBlendMode: 'luminosity'
-                    }}>
-                    {/* Dark overlay to ensure text contrast */}
-                    <div className="absolute inset-0 bg-rt-obsidian/80 mix-blend-multiply" />
-                    <svg className="w-full h-full opacity-30" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        {/* Abstract massive golden geometry */}
-                        <path d="M 0 50 Q 50 0 100 50 T 0 50" fill="none" stroke="var(--color-rt-gold)" strokeWidth="0.2" />
-                        <circle cx="50" cy="50" r="30" fill="none" stroke="var(--color-rt-gold)" strokeWidth="0.1" />
-                    </svg>
-                </div>
-            </div>
+            <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 relative">
 
-            <div className="relative z-10 max-w-6xl mx-auto px-8 flex flex-col items-center">
-
-                <div className="w-full grid-golden gap-16 md:gap-8 mb-[89px]">
-
-                    {/* Left Text */}
-                    <div ref={textLeftRef} className="flex flex-col items-start opacity-0 bg-rt-obsidian/60 p-8 rounded-3xl backdrop-blur-sm border border-rt-ash/10">
-                        <p className="font-outfit text-rt-silver text-sm mb-4 uppercase tracking-widest pl-4 border-l border-rt-silver/40 drop-shadow-md">
-                            Популярната „манифестация" ти казва:
-                        </p>
-                        <h2 className="font-cormorant italic text-rt-cream text-3xl md:text-5xl leading-tight drop-shadow-lg">
-                            „Привличаш с енергия<br />и вибрации."
-                        </h2>
-                    </div>
-
-                    {/* Right Text */}
-                    <div ref={textRightRef} className="flex flex-col items-end opacity-0 text-right pt-16 md:pt-32">
-                        <div className="bg-rt-obsidian/60 p-8 rounded-3xl backdrop-blur-sm border border-rt-gold/10 inline-flex flex-col items-end">
-                            <p className="font-outfit text-rt-gold text-sm mb-4 uppercase tracking-widest pr-4 border-r border-rt-gold/50 w-full text-right drop-shadow-md">
-                                Тази система ти казва:
-                            </p>
-                            <h2 className="font-cormorant italic text-rt-gold text-4xl md:text-6xl leading-tight text-right drop-shadow-[0_0_20px_rgba(201,169,97,0.3)]">
-                                „Избираш от поле от вече съществуващи варианти."
-                            </h2>
-                        </div>
-                    </div>
-
+                {/* Vertical Geometric Divider (Desktop only) */}
+                <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-px bg-rt-silver-dim/10">
+                    <div ref={splitLineRef} className="w-full bg-rt-gold" style={{ height: '0%' }}></div>
                 </div>
 
-                {/* Center Conclusion */}
-                <div ref={conclusionRef} className="opacity-0">
-                    <h3 className="font-jakarta font-bold text-rt-cream text-3xl md:text-5xl tracking-normal">
-                        <span className="sweep-target gold-sweep">Разликата е всичко.</span>
+                {/* Left Side: Setup */}
+                <div className="flex-1 text-right flex flex-col justify-center" ref={contentRef}>
+                    <h3 className="font-outfit text-rt-ash text-xl md:text-2xl mb-6">
+                        Повечето хора търсят
+                        <br />
+                        <span className="text-rt-cream italic">„поредната книга"</span>
                     </h3>
+                    <p className="font-outfit text-rt-ash/70 text-base max-w-sm ml-auto">
+                        За да се мотивират за 3 дни и след това да се върнат към старата си реалност.
+                    </p>
                 </div>
 
+                {/* Right Side: Philosophy */}
+                <div className="flex-1 text-left flex flex-col justify-center pl-0 md:pl-8">
+                    <h2 className="font-cormorant italic font-bold text-rt-gold text-4xl md:text-5xl leading-tight mb-8">
+                        Разликата между това да познаваш модела и това да го <span className="underline decoration-1 underline-offset-4 decoration-rt-gold/30">оперираш</span> е всичко.
+                    </h2>
+                    <p className="font-jakarta text-rt-cream text-lg max-w-md">
+                        Тази система не е за хора, които търсят мотивация. Тя е за тези, които са готови за <strong className="text-rt-gold">инструкции</strong>.
+                    </p>
+                </div>
             </div>
         </section>
     );

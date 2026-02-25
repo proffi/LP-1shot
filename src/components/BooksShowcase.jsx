@@ -50,143 +50,110 @@ const BooksShowcase = () => {
                 <div className="w-full flex flex-col md:flex-row gap-8">
 
                     {/* CARD 1: Book 1 (38.2% width on desktop) */}
-                    <div className="book-card flex-1 md:flex-[0.382] bg-[#121620] rounded-[3rem] p-10 md:p-12 
-            border border-rt-silver/10 hover:border-rt-silver/30 transition-all duration-500
-            hover:-translate-y-2 relative overflow-hidden group">
+                    <div className="book-card flex-1 md:flex-[0.382] bg-rt-surface rounded-[2rem] p-8 md:p-10 
+            border border-rt-silver-dim/20 hover:border-rt-silver-dim/40 transition-all duration-500
+            hover:-translate-y-2 relative overflow-hidden group flex flex-col items-center text-center">
 
-                        {/* Background mirrored geometry hint */}
-                        <svg className="absolute inset-0 w-full h-full opacity-5 pointer-events-none transition-transform duration-1000 group-hover:scale-110" viewBox="0 0 100 100">
-                            <polygon points="10,50 50,10 90,50 50,90" stroke="var(--color-rt-silver)" fill="none" strokeWidth="0.5" />
-                            <polygon points="20,50 50,20 80,50 50,80" stroke="var(--color-rt-silver)" fill="none" strokeWidth="0.5" />
-                        </svg>
+                        <h4 className="font-mono text-rt-silver uppercase text-xs tracking-widest mb-2">Книга 1</h4>
+                        <h2 className="font-cormorant italic font-bold text-rt-silver text-3xl md:text-4xl mb-2">ОГЛЕДАЛОТО</h2>
+                        <p className="font-mono text-rt-ash text-xs tracking-widest mb-8">РАЗБИРАНЕ НА МОДЕЛА</p>
 
-                        <div className="relative z-10">
-                            {/* Book Image Placeholder */}
-                            <div className="w-full aspect-[3/4] mb-8 rounded-lg overflow-hidden border border-rt-silver/20 shadow-[-10px_10px_30px_rgba(0,0,0,0.8)] transform transition-transform group-hover:scale-105 group-hover:-rotate-2 bg-[#121620]">
-                                <img src="/book1.jpg" alt="ОГЛЕДАЛОТО Книга" className="w-full h-full object-cover opacity-90 transition-all hover:opacity-100" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.4; }} />
-                            </div>
-                            <h4 className="font-mono text-rt-silver uppercase text-xs tracking-[0.2em] mb-4">Книга Първа</h4>
-                            <h2 className="font-cormorant italic text-rt-silver text-4xl mb-4">ОГЛЕДАЛОТО</h2>
-                            <p className="font-mono text-rt-ash text-sm mb-12 border-b border-rt-ash/20 pb-4">
-                                Разбиране на Модела — 141 Страници
-                            </p>
+                        {/* Book Image Placeholder */}
+                        <div className="w-full max-w-[180px] aspect-[3/4] mb-8 rounded-lg overflow-hidden border border-rt-silver/20 shadow-[0_10px_30px_rgba(0,0,0,0.8)] transform transition-transform group-hover:scale-105 group-hover:-rotate-2 bg-[#121620]">
+                            <img src="/book1.jpg" alt="ОГЛЕДАЛОТО Книга" className="w-full h-full object-cover opacity-90 transition-all hover:opacity-100" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.4; }} />
+                        </div>
 
-                            <ul className="flex flex-col gap-5 text-rt-silver border-l border-rt-silver/20 pl-6 mb-16">
-                                <li className="font-outfit text-sm relative before:content-[''] before:absolute before:-left-8 before:top-2 before:w-4 before:h-[1px] before:bg-rt-silver">Как реалността всъщност работи (двойното огледало)</li>
-                                <li className="font-outfit text-sm relative before:content-[''] before:absolute before:-left-8 before:top-2 before:w-4 before:h-[1px] before:bg-rt-silver">Кой краде енергията ти ежедневно (махалата)</li>
-                                <li className="font-outfit text-sm relative before:content-[''] before:absolute before:-left-8 before:top-2 before:w-4 before:h-[1px] before:bg-rt-silver">Защо целите ти не се материализират (излишен потенциал)</li>
-                                <li className="font-outfit text-sm relative before:content-[''] before:absolute before:-left-8 before:top-2 before:w-4 before:h-[1px] before:bg-rt-silver">Разликата между вътрешна и външна интенция</li>
-                                <li className="font-outfit text-sm relative before:content-[''] before:absolute before:-left-8 before:top-2 before:w-4 before:h-[1px] before:bg-rt-silver">Седемте принципа на огледалото</li>
-                            </ul>
+                        <ul className="flex flex-col gap-3 text-rt-silver text-sm text-left w-full mb-10">
+                            <li className="flex items-start gap-3"><span className="text-rt-silver/50 font-mono mt-0.5">01</span> Каква е физиката на вероятностите</li>
+                            <li className="flex items-start gap-3"><span className="text-rt-silver/50 font-mono mt-0.5">02</span> Законът на Излишния Потенциал</li>
+                            <li className="flex items-start gap-3"><span className="text-rt-silver/50 font-mono mt-0.5">03</span> Размаха на махалата (Егрегори)</li>
+                        </ul>
 
-                            <div className="mt-auto">
-                                <p className="font-mono text-rt-silver text-3xl mb-6">€21</p>
-                                <button className="w-full py-4 rounded-full border border-rt-silver text-rt-silver font-jakarta text-sm hover:bg-rt-silver hover:text-rt-obsidian transition-colors duration-300">
-                                    Започни с Книга 1
-                                </button>
-                            </div>
+                        <div className="mt-auto w-full">
+                            <p className="font-mono text-rt-silver text-2xl font-bold mb-4">€21</p>
+                            <button className="w-full py-4 rounded-full border border-rt-silver-dim/30 text-rt-silver font-jakarta text-sm font-bold hover:bg-rt-silver hover:text-rt-void transition-colors duration-300">
+                                ВЗЕМИ КНИГА 1
+                            </button>
                         </div>
                     </div>
 
-                    {/* Middle aesthetic connector */}
-                    <div className="hidden md:flex flex-col items-center justify-center opacity-30">
-                        <div className="h-16 w-[1px] bg-rt-silver/50 mb-2"></div>
-                        <span className="font-mono text-rt-cream">+</span>
-                        <div className="h-16 w-[1px] bg-rt-gold/50 mt-2"></div>
-                    </div>
+                    {/* BUNDLE CARD (The Obvious Choice - Center) */}
+                    <div className="book-card flex-1 md:flex-[0.45] bg-gradient-to-b from-[#1c1c1c] to-[#0A0A0A] rounded-[2rem] p-10 md:p-12 
+            border border-rt-gold/40 hover:border-rt-gold transition-all duration-500
+            hover:-translate-y-2 relative overflow-hidden group shadow-[0_0_55px_rgba(201,169,97,0.15)] flex flex-col items-center text-center transform md:scale-105 z-10 order-first md:order-none">
 
-                    {/* CARD 2: Book 2 (61.8% width on desktop) */}
-                    <div className="book-card flex-1 md:flex-[0.618] bg-[#121620] rounded-[3rem] p-10 md:p-12 
-            border border-rt-gold/20 hover:border-rt-gold/40 transition-all duration-500
-            hover:-translate-y-2 relative overflow-hidden group shadow-[0_0_30px_rgba(201,169,97,0.05)]">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-rt-gold text-rt-void font-jakarta font-bold text-[0.65rem] uppercase tracking-widest px-6 py-1.5 rounded-b-lg w-max">
+                            Пълната Система — Най-Добър Избор
+                        </div>
 
-                        {/* Background blueprint geometry */}
-                        <svg className="absolute inset-0 w-full h-full opacity-5 pointer-events-none transition-transform duration-[1.618s] group-hover:rotate-12" viewBox="0 0 100 100">
-                            {/* Fibonacci spiral hint */}
-                            <path d="M 50 50 Q 60 40 70 50 T 50 80 Q 20 50 50 20 T 90 50" stroke="var(--color-rt-gold)" fill="none" strokeWidth="0.5" />
-                        </svg>
+                        <h4 className="font-mono text-rt-gold uppercase text-xs tracking-widest mb-2 mt-4">Пълната Система</h4>
+                        <h2 className="font-cormorant italic font-bold text-rt-gold text-4xl md:text-5xl mb-2">РЕАЛНОСТТА</h2>
+                        <p className="font-mono text-rt-gold text-xs tracking-widest mb-8 opacity-80">ОГЛЕДАЛОТО + СЪЗДАТЕЛЯТ</p>
 
-                        <div className="relative z-10 flex flex-col h-full">
-                            {/* Book Image Placeholder */}
-                            <div className="w-full max-w-[300px] mx-auto aspect-[3/4] mb-8 rounded-lg overflow-hidden border border-rt-gold/30 shadow-[-10px_10px_40px_rgba(201,169,97,0.15)] transform transition-transform group-hover:scale-105 group-hover:rotate-2 bg-[#121620]">
-                                <img src="/book2.jpg" alt="СЪЗДАТЕЛЯТ Книга" className="w-full h-full object-cover opacity-90 transition-all hover:opacity-100" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.4; }} />
+                        {/* Bundle Image Stack Placeholder */}
+                        <div className="flex justify-center items-center mb-10 relative h-48 w-full max-w-[240px]">
+                            <div className="absolute w-[110px] aspect-[3/4] rounded-lg overflow-hidden border border-rt-silver/20 transform -rotate-12 -translate-x-12 shadow-2xl opacity-90 transition-all duration-500 bg-[#121620] group-hover:-rotate-[16deg] group-hover:-translate-x-14">
+                                <img src="/book1.jpg" className="w-full h-full object-cover" alt="Книга 1" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.5; }} />
                             </div>
-                            <div className="flex justify-between items-start mb-4">
-                                <h4 className="font-mono text-rt-gold uppercase text-xs tracking-[0.2em]">Книга Втора</h4>
-                                <span className="bg-rt-gold/10 text-rt-gold font-mono text-[10px] px-3 py-1 rounded-full uppercase tracking-wider border border-rt-gold/20">
-                                    89-ДНЕВНА СИСТЕМА
-                                </span>
-                            </div>
-
-                            <h2 className="font-cormorant italic text-rt-gold text-5xl mb-4">СЪЗДАТЕЛЯТ</h2>
-                            <p className="font-mono text-rt-ash text-sm mb-12 border-b border-rt-ash/20 pb-4">
-                                Оперирайки Реалността — 228 Страници
-                            </p>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-                                <ul className="flex flex-col gap-4 text-rt-cream border-l border-rt-gold/30 pl-6">
-                                    <li className="font-outfit text-sm relative before:content-[''] before:absolute before:-left-8 before:top-2 before:w-4 before:h-[1px] before:bg-rt-gold">Фаза 1: Изчистване (Седмици 1-4)</li>
-                                    <li className="font-outfit text-sm relative before:content-[''] before:absolute before:-left-8 before:top-2 before:w-4 before:h-[1px] before:bg-rt-gold">Фаза 2: Слайд и амалгама (Седмици 5-9)</li>
-                                    <li className="font-outfit text-sm relative before:content-[''] before:absolute before:-left-8 before:top-2 before:w-4 before:h-[1px] before:bg-rt-gold">Фаза 3: Авторитет (Седмици 10-12)</li>
-                                    <li className="font-outfit text-sm relative before:content-[''] before:absolute before:-left-8 before:top-2 before:w-4 before:h-[1px] before:bg-rt-gold">89-дневен пълен протокол</li>
-                                </ul>
-                                <ul className="flex flex-col gap-4 text-rt-cream border-l border-rt-gold/30 pl-6">
-                                    <li className="font-outfit text-sm relative before:content-[''] before:absolute before:-left-8 before:top-2 before:w-4 before:h-[1px] before:bg-rt-gold">Ден-по-ден инструкции</li>
-                                    <li className="font-outfit text-sm relative before:content-[''] before:absolute before:-left-8 before:top-2 before:w-4 before:h-[1px] before:bg-rt-gold">Проследяващи листове за всяка седмица</li>
-                                    <li className="font-outfit text-sm relative before:content-[''] before:absolute before:-left-8 before:top-2 before:w-4 before:h-[1px] before:bg-rt-gold">Техники за усилване на практиката</li>
-                                    <li className="font-outfit text-sm relative before:content-[''] before:absolute before:-left-8 before:top-2 before:w-4 before:h-[1px] before:bg-rt-gold">Седмични оценки и корекции</li>
-                                </ul>
-                            </div>
-
-                            <div className="mt-auto">
-                                <p className="font-mono text-rt-gold text-3xl mb-6">€34</p>
-                                <button className="w-full py-4 rounded-full border border-rt-gold text-rt-gold font-jakarta text-sm hover:bg-rt-gold hover:text-rt-obsidian transition-colors duration-300">
-                                    Вземи Книга 2
-                                </button>
+                            <div className="absolute w-[120px] aspect-[3/4] rounded-lg overflow-hidden border border-rt-gold/40 transform rotate-6 translate-x-8 shadow-[0_20px_40px_rgba(201,169,97,0.2)] z-10 transition-all duration-500 bg-[#121620] group-hover:rotate-12 group-hover:translate-x-10">
+                                <img src="/book2.jpg" className="w-full h-full object-cover" alt="Книга 2" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.5; }} />
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                {/* BUNDLE CARD (The Obvious Choice) */}
-                <div className="book-card w-full max-w-5xl bg-rt-void rounded-[3rem] p-12 text-center relative overflow-hidden border border-rt-gold shadow-[0_20px_60px_rgba(201,169,97,0.1)]">
+                        <ul className="flex flex-col gap-3 text-rt-cream text-sm text-left w-full mb-10 font-bold">
+                            <li className="flex items-start gap-4"><span className="text-rt-gold text-lg leading-none">✓</span> Книга 1: Огледалото (141 стр.)</li>
+                            <li className="flex items-start gap-4"><span className="text-rt-gold text-lg leading-none">✓</span> Книга 2: Създателят (228 стр.)</li>
+                            <li className="flex items-start gap-4"><span className="text-rt-gold text-lg leading-none">✓</span> Пълният 89-дневен Протокол</li>
+                        </ul>
 
-                    <h3 className="font-jakarta font-bold text-rt-gold uppercase tracking-[0.2em] mb-4 text-sm">
-                        Пълната Система
-                    </h3>
-                    {/* Bundle Image Stack Placeholder */}
-                    <div className="flex justify-center items-center mt-6 mb-12 relative h-48 w-full max-w-sm mx-auto">
-                        <div className="absolute w-32 aspect-[3/4] rounded-lg overflow-hidden border border-rt-silver/20 transform -rotate-12 -translate-x-12 shadow-2xl opacity-90 transition-all duration-500 bg-[#121620]">
-                            <img src="/book1.jpg" className="w-full h-full object-cover" alt="Книга 1" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.5; }} />
+                        <div className="mt-auto w-full flex flex-col items-center">
+                            <div className="flex items-center gap-4 mb-2">
+                                <span className="font-mono text-rt-ash text-xl line-through opacity-70">€55</span>
+                                <span className="bundle-price font-mono text-rt-gold text-4xl font-bold">€39</span>
+                            </div>
+                            <span className="font-mono text-rt-success text-[0.65rem] uppercase tracking-wider mb-6">Спестяваш €16 (29%)</span>
+
+                            <button className="w-full py-4 rounded-full bg-rt-gold text-rt-void font-jakarta text-sm font-bold shadow-[0_0_21px_rgba(201,169,97,0.3)] hover:shadow-[0_0_34px_rgba(201,169,97,0.5)] hover:scale-[1.03] transition-all duration-300">
+                                ВЗЕМИ СИСТЕМАТА
+                            </button>
                         </div>
-                        <div className="absolute w-36 aspect-[3/4] rounded-lg overflow-hidden border border-rt-gold/40 transform rotate-6 translate-x-8 shadow-[0_20px_40px_rgba(201,169,97,0.2)] z-10 transition-all duration-500 bg-[#121620]">
-                            <img src="/book2.jpg" className="w-full h-full object-cover" alt="Книга 2" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.5; }} />
+                    </div>
+
+                    {/* CARD 3: Book 2 (38.2% width on desktop) */}
+                    <div className="book-card flex-1 md:flex-[0.382] bg-rt-surface rounded-[2rem] p-8 md:p-10 
+            border border-rt-gold-dim/30 hover:border-rt-gold-dim/60 transition-all duration-500
+            hover:-translate-y-2 relative overflow-hidden group flex flex-col items-center text-center">
+
+                        <h4 className="font-mono text-rt-gold uppercase text-xs tracking-widest mb-2">Книга 2</h4>
+                        <h2 className="font-cormorant italic font-bold text-rt-gold text-3xl md:text-4xl mb-2">СЪЗДАТЕЛЯТ</h2>
+                        <p className="font-mono text-rt-gold opacity-80 text-xs tracking-widest mb-8">89-ДНЕВЕН ПРОТОКОЛ</p>
+
+                        {/* Book Image Placeholder */}
+                        <div className="w-full max-w-[180px] aspect-[3/4] mb-8 rounded-lg overflow-hidden border border-rt-gold/20 shadow-[0_10px_30px_rgba(201,169,97,0.1)] transform transition-transform group-hover:scale-105 group-hover:rotate-2 bg-[#121620]">
+                            <img src="/book2.jpg" alt="СЪЗДАТЕЛЯТ Книга" className="w-full h-full object-cover opacity-90 transition-all hover:opacity-100" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.4; }} />
+                        </div>
+
+                        <ul className="flex flex-col gap-3 text-rt-cream text-sm text-left w-full mb-10">
+                            <li className="flex items-start gap-3"><span className="text-rt-gold/50 font-mono mt-0.5">01</span> Фаза 1: Изчистване</li>
+                            <li className="flex items-start gap-3"><span className="text-rt-gold/50 font-mono mt-0.5">02</span> Фаза 2: Слайд и Амалгама</li>
+                            <li className="flex items-start gap-3"><span className="text-rt-gold/50 font-mono mt-0.5">03</span> Фаза 3: Авторитет</li>
+                        </ul>
+
+                        <div className="mt-auto w-full">
+                            <p className="font-mono text-rt-gold text-2xl font-bold mb-4">€34</p>
+                            <button className="w-full py-4 rounded-full border border-rt-gold/30 text-rt-gold font-jakarta text-sm font-bold hover:bg-rt-gold/10 hover:border-rt-gold transition-colors duration-300">
+                                ВЗЕМИ КНИГА 2
+                            </button>
                         </div>
                     </div>
-                    <p className="font-outfit text-rt-cream/80 text-xl mb-8">
-                        Двете книги. Една механика. <br />
-                        <span className="font-mono opacity-80 mt-2 block">369 страници.</span>
-                    </p>
-
-                    <div className="flex items-center justify-center gap-6 mb-8">
-                        <span className="font-mono text-rt-ash text-2xl line-through decoration-rt-ash/50">€55</span>
-                        <span className="bundle-price font-mono text-rt-gold text-6xl font-bold">€39</span>
-                    </div>
-
-                    <p className="font-jakarta text-rt-gold/80 text-sm mb-10">
-                        Спестяваш €16 (29%)
-                    </p>
-
-                    <button className="w-full md:w-auto px-16 py-5 rounded-full bg-rt-gold text-rt-obsidian font-jakarta font-bold text-lg btn-shine-sweep hover:scale-[1.02] transition-transform">
-                        ВЗЕМИ ПЪЛНАТА СИСТЕМА — €39
-                    </button>
-
-                    <p className="font-outfit text-rt-ash text-xs mt-6 opacity-70">
-                        Физически книги. Доставка в България. Speedy / Econt.
-                    </p>
 
                 </div>
+            </div>
 
+            {/* Trust & Delivery Strip underneath the cards */}
+            <div className="w-full flex flex-col items-center gap-2 mt-4 text-rt-ash text-sm">
+                <p>Физически книги. Доставка в България 3-5 дни.</p>
+                <p className="text-rt-cream"><span className="text-rt-success mr-1">✓</span> Наличен Наложен Платеж (Speedy/Econt)</p>
             </div>
         </section>
     );

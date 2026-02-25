@@ -85,23 +85,32 @@ const Hero = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Background fade in slightly
+            // Background fade in slower
             gsap.fromTo(canvasContainerRef.current,
                 { autoAlpha: 0.03 },
-                { autoAlpha: 0.1, duration: 2.5, ease: "power2.out" }
+                { autoAlpha: 0.08, duration: 4, ease: "power2.out" }
             );
 
-            // Staggered text fade up with Fibonacci deliberate timings
-            gsap.set(textRefs.current, { y: 21, autoAlpha: 0 }); // 21px fibonacci
+            // Staggered text fade up with precise Fibonacci deliberate timings
+            // Using a simple timeline to control exact delays
+            const tl = gsap.timeline();
 
-            gsap.to(textRefs.current, {
-                y: 0,
-                autoAlpha: 1,
-                duration: 1.3,
-                stagger: 0.130, // 130ms stagger
-                ease: "power3.out",
-                delay: 0.2
-            });
+            gsap.set(textRefs.current, { y: 30, autoAlpha: 0 });
+
+            // Ref 0: "Реалността не е"
+            tl.to(textRefs.current[0], { y: 0, autoAlpha: 1, duration: 1, ease: "power3.out" }, "+=0.2")
+                // Ref 1: "това, което мислиш..." (Fibonacci 130ms delay)
+                .to(textRefs.current[1], { y: 0, autoAlpha: 1, duration: 1, ease: "power3.out" }, "+=0.13")
+                // Ref 2: Qualifier text (Fibonacci 340ms delay)
+                .to(textRefs.current[2], { y: 0, autoAlpha: 1, duration: 1, ease: "power3.out" }, "+=0.34")
+                // Ref 3: Final CTA block + disclaimer (Fibonacci 550ms delay)
+                .to(textRefs.current[3], { y: 0, autoAlpha: 1, duration: 1.2, ease: "power3.out" }, "+=0.55");
+
+            // Hero Arrow/Line Pulse
+            gsap.fromTo(".hero-scroll-line",
+                { height: 0 },
+                { height: 34, duration: 1.5, ease: "power2.inOut", repeat: -1, yoyo: true }
+            );
 
         }, containerRef);
 
@@ -116,78 +125,65 @@ const Hero = () => {
     return (
         <section
             ref={containerRef}
-            className="relative w-full h-[100dvh] overflow-hidden bg-rt-void flex items-end pb-[10vh]"
+            className="relative w-full h-[100dvh] overflow-hidden bg-rt-void flex items-end pb-[15vh] md:pb-[20vh]"
         >
-            {/* Abstract moody background image */}
-            <div
-                className="absolute inset-0 z-0 opacity-20"
-                style={{
-                    backgroundImage: 'url("https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2000&auto=format&fit=crop")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    mixBlendMode: 'luminosity'
-                }}
-            />
-            {/* Gradient overlay for text readability */}
-            <div className="absolute inset-0 z-0 bg-gradient-to-t from-rt-obsidian via-rt-void/80 to-transparent pointer-events-none" />
+            {/* Background Image is removed in FAVOR of pure dark void + geometric spiral */}
+            <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0A0E1A] to-[#000000] pointer-events-none" />
 
-            <div ref={canvasContainerRef} className="absolute inset-0 z-0 pointer-events-none opacity-40">
+            <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_30%_70%,rgba(10,14,26,0)_0%,rgba(0,0,0,0.7)_70%)] pointer-events-none" />
+
+            {/* Geometric spiral has 5-8% opacity in hero per spec */}
+            <div ref={canvasContainerRef} className="absolute inset-0 z-0 pointer-events-none opacity-[0.05]">
                 <GeometricBackground />
             </div>
 
-            <div className="relative z-10 w-full px-8 md:px-16 grid-golden mx-auto max-w-7xl gap-8">
+            <div className="relative z-10 w-full px-8 md:px-16 grid-golden mx-auto max-w-7xl">
                 {/* Left Column (38.2% visual weight proxy) */}
-                <div className="flex flex-col items-start justify-end w-full">
+                <div className="flex flex-col items-start justify-end w-full md:w-[220%]"> {/* Span across slightly on desktop for drama */}
                     <div className="mb-[34px]">
-                        <h1 className="flex flex-col items-start uppercase tracking-widest text-[#E8E8E8] font-jakarta font-bold text-lg md:text-xl">
-                            <span ref={addToRefs} className="drop-shadow-md">Реалността не е</span>
-                            <span ref={addToRefs} className="drop-shadow-md">това, което</span>
+                        <h1
+                            ref={(el) => textRefs.current[0] = el}
+                            className="flex flex-col items-start uppercase tracking-[0.15em] text-rt-silver font-jakarta font-bold text-[1rem] leading-tight opacity-0"
+                        >
+                            Реалността не е
                         </h1>
                         <h2
-                            ref={addToRefs}
-                            className="font-cormorant italic font-bold text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.1] text-rt-gold mt-1 drop-shadow-lg"
+                            ref={(el) => textRefs.current[1] = el}
+                            className="font-cormorant italic font-bold text-[clamp(2.5rem,6vw,5rem)] leading-[1.0] text-rt-gold mt-2 opacity-0 -ml-[2px]"
                         >
-                            мислиш че е.
+                            това, което мислиш че е.
                         </h2>
                     </div>
 
-                    <p ref={addToRefs} className="font-outfit text-rt-silver text-lg mb-[21px] max-w-md w-full drop-shadow-md">
+                    <p
+                        ref={(el) => textRefs.current[2] = el}
+                        className="font-outfit text-rt-ash text-[1.05rem] mb-[55px] max-w-lg w-full opacity-0"
+                    >
                         И не, това не е поредната книга за „манифестация".
                     </p>
 
-                    <div ref={addToRefs}>
-                        <button className="bg-rt-gold text-rt-obsidian px-8 py-4 rounded-[2rem] font-jakarta font-bold text-base btn-shine-sweep transition-transform hover:scale-[1.03]">
-                            Виж Системата
-                        </button>
-                    </div>
-                </div>
-
-                {/* Right Column (61.8%) - Books Preview Presentation */}
-                <div className="hidden md:flex flex-col items-center justify-center relative min-h-[500px] w-full mt-12 md:mt-0">
-                    {/* The scroll indicator element mentioned */}
-                    <div className="absolute bottom-0 right-0 flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity z-30">
-                        <span
-                            onMouseEnter={handleHover369}
-                            className="font-mono text-rt-silver text-xs tracking-[0.05em] cursor-default"
+                    <div ref={(el) => textRefs.current[3] = el} className="flex flex-col items-start opacity-0">
+                        <button
+                            onClick={() => document.getElementById('книгите')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="bg-rt-gold text-rt-obsidian px-[34px] py-[13px] rounded-[1.5rem] font-jakarta font-bold text-[1rem] transition-transform hover:scale-[1.02] flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(201,169,97,0.2)] hover:shadow-[0_0_25px_rgba(201,169,97,0.4)]"
                         >
-                            ↓ <span className="text-white font-bold">369</span> страници механика
+                            Виж Системата <span>↓</span>
+                        </button>
+                        <span
+                            className="font-mono text-rt-ash-dim text-[0.75rem] mt-3 tracking-wide cursor-default"
+                            onMouseEnter={handleHover369}
+                        >
+                            <span className="text-rt-ash transition-colors">369</span> страници механика. Не мистика.
                         </span>
-                        {/* Tiny pulsing golden line */}
-                        <div className="w-[1px] h-8 bg-rt-gold animate-pulse"></div>
-                    </div>
-
-                    {/* Books Image Stack Layout */}
-                    <div className="relative w-full h-full flex items-center justify-center group pointer-events-auto mt-16">
-                        {/* Book 1 */}
-                        <div className="absolute z-10 w-56 aspect-[3/4] shadow-[0_20px_50px_rgba(0,0,0,0.9)] transform -rotate-6 -translate-x-16 transition-transform duration-700 group-hover:-rotate-12 group-hover:-translate-x-24 rounded-lg overflow-hidden border border-rt-silver/30 bg-[#121620]">
-                            <img src="/book1.jpg" alt="ОГЛЕДАЛОТО" className="w-full h-full object-cover opacity-90 transition-opacity hover:opacity-100" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.5; }} />
-                        </div>
-                        {/* Book 2 */}
-                        <div className="absolute z-20 w-64 aspect-[3/4] shadow-[0_20px_50px_rgba(201,169,97,0.3)] transform rotate-6 translate-x-8 transition-transform duration-700 group-hover:rotate-12 group-hover:translate-x-16 rounded-lg overflow-hidden border border-rt-gold/40 bg-[#121620]">
-                            <img src="/book2.jpg" alt="СЪЗДАТЕЛЯТ" className="w-full h-full object-cover opacity-90 transition-opacity hover:opacity-100" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.5; }} />
-                        </div>
                     </div>
                 </div>
+
+                {/* Right Column handles absolutely nothing per spec, Hero content is bottom left */}
+            </div>
+
+            {/* Subtle Scroll Indicator */}
+            <div className="absolute bottom-[21px] left-1/2 -translate-x-1/2 flex flex-col items-center">
+                <div className="hero-scroll-line w-[2px] h-[34px] bg-rt-gold"></div>
             </div>
         </section>
     );

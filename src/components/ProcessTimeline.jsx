@@ -91,25 +91,25 @@ const ProcessTimeline = () => {
                 </p>
             </div>
 
-            <div className="relative w-full overflow-x-auto pb-16 custom-scrollbar-hide">
+            <div className="relative w-full overflow-x-auto pb-16 custom-scrollbar-hide snap-x snap-mandatory scroll-p-8">
                 {/* The Golden Line constraint to inner container */}
-                <div className="min-w-[1200px] max-w-7xl mx-auto relative px-8 flex justify-between">
+                <div className="min-w-[1240px] max-w-7xl mx-auto relative px-8 flex gap-8">
 
-                    <div className="absolute top-[34px] left-8 right-8 h-px bg-rt-ash/20 z-0" />
-                    <div ref={lineRef} className="absolute top-[34px] left-8 h-px bg-rt-gold z-10 w-0 shadow-[0_0_10px_#C9A961]" />
+                    <div className="absolute top-[34px] left-8 right-8 h-px bg-rt-silver-dim/20 z-0" />
+                    <div ref={lineRef} className="absolute top-[34px] left-8 h-px bg-rt-gold z-10 w-0 shadow-[0_0_15px_#C9A961]" />
 
                     {/* PHASE 1 */}
-                    <div ref={addToRefs} className="relative z-20 flex flex-col items-center flex-1 max-w-[280px]">
+                    <div ref={addToRefs} className="relative z-20 flex flex-col items-center flex-1 min-w-[280px] shrink-0">
                         <div className="w-4 h-4 rounded-full bg-rt-void border-2 border-rt-gold mb-6" />
-                        <div className="w-full bg-[#121620] rounded-[2rem] p-8 border border-rt-ash/10">
-                            <h4 className="font-mono text-rt-ash text-[10px] uppercase tracking-widest mb-2">Weeks 1–4 (55 pages)</h4>
-                            <h3 className="font-jakarta font-bold text-rt-silver text-xl mb-6">Phase 1: ИЗЧИСТВАНЕ</h3>
+                        <div className="w-full bg-rt-surface rounded-[2rem] p-8 border border-rt-silver-dim/20">
+                            <h4 className="font-mono text-rt-ash text-[10px] uppercase tracking-widest mb-2">Седмици 1-4 (55 страници)</h4>
+                            <h3 className="font-jakarta font-bold text-rt-silver text-xl mb-6">Фаза 1: Изчистване</h3>
 
                             <div className="flex justify-center mb-6 h-[80px]">
                                 {/* Gauge SVG */}
                                 <svg className="w-20 h-20 transform -rotate-90">
-                                    <circle cx="40" cy="40" r="36" fill="transparent" stroke="var(--color-rt-obsidian)" strokeWidth="4" />
-                                    <circle cx="40" cy="40" r="36" fill="transparent" stroke="#CC3333" strokeWidth="4" strokeDasharray="226" strokeDashoffset="226" className="phase-1-gauge shadow-[0_0_15px_inset_currentColor]" />
+                                    <circle cx="40" cy="40" r="36" fill="transparent" stroke="var(--color-obsidian)" strokeWidth="4" />
+                                    <circle cx="40" cy="40" r="36" fill="transparent" stroke="#CC4444" strokeWidth="4" strokeDasharray="226" strokeDashoffset="226" className="phase-1-gauge shadow-[0_0_15px_inset_currentColor]" />
                                 </svg>
                             </div>
 
@@ -117,17 +117,17 @@ const ProcessTimeline = () => {
                                 <p className="font-mono text-[10px] text-rt-gold text-center">Излишен потенциал → 0</p>
                             </div>
                             <p className="font-outfit text-sm text-rt-cream/70 leading-relaxed">
-                                Изчистваш незавършените интенции. Освобождаваш енергия. Дефлектираш махала.
+                                Идентифицираш и премахваш енергийните паразити (махалата). Изчистваш "важността", която блокира резултатите ти.
                             </p>
                         </div>
                     </div>
 
                     {/* PHASE 2 */}
-                    <div ref={addToRefs} className="relative z-20 flex flex-col items-center flex-1 max-w-[280px]">
+                    <div ref={addToRefs} className="relative z-20 flex flex-col items-center flex-1 min-w-[280px] shrink-0">
                         <div className="w-4 h-4 rounded-full bg-rt-void border-2 border-rt-gold mb-6" />
-                        <div className="w-full bg-[#121620] rounded-[2rem] p-8 border border-rt-ash/10">
-                            <h4 className="font-mono text-rt-ash text-[10px] uppercase tracking-widest mb-2">Weeks 5–9 (89 pages)</h4>
-                            <h3 className="font-jakarta font-bold text-rt-silver text-xl mb-6">Phase 2: ИЗГРАЖДАНЕ</h3>
+                        <div className="w-full bg-rt-surface rounded-[2rem] p-8 border border-rt-silver-dim/20">
+                            <h4 className="font-mono text-rt-ash text-[10px] uppercase tracking-widest mb-2">Седмици 5-9 (89 страници)</h4>
+                            <h3 className="font-jakarta font-bold text-rt-silver text-xl mb-6">Фаза 2: Изграждане</h3>
 
                             <div className="flex justify-center mb-6 h-[80px]">
                                 {/* Target Slide Builder SVG */}
@@ -138,63 +138,63 @@ const ProcessTimeline = () => {
                                 </svg>
                             </div>
 
-                            <div className="bg-rt-obsidian rounded-lg p-3 mb-4 flex items-center justify-center gap-1 text-[10px]">
-                                <span className="font-mono text-rt-gold">Целеви слайд: АКТИВЕН</span>
+                            <div className="bg-rt-obsidian rounded-lg p-3 mb-4 flex items-center justify-center gap-2 text-[10px]">
                                 <span className="w-1.5 h-3 bg-rt-gold animate-pulse"></span>
+                                <span className="font-mono text-rt-gold">Слайд: Активен</span>
                             </div>
                             <p className="font-outfit text-sm text-rt-cream/70 leading-relaxed">
-                                Създаваш целевия слайд. Активираш амалгамата. Усилваш интенцията.
+                                Формулираш точната си цел. Изолираш се от "чуждите" цели. Създаваш целевия слайд и започваш процеса на Амалгама.
                             </p>
                         </div>
                     </div>
 
                     {/* PHASE 3 */}
-                    <div ref={addToRefs} className="relative z-20 flex flex-col items-center flex-1 max-w-[280px]">
+                    <div ref={addToRefs} className="relative z-20 flex flex-col items-center flex-1 min-w-[280px] shrink-0">
                         <div className="w-4 h-4 rounded-full bg-rt-void border-2 border-rt-gold mb-6" />
-                        <div className="w-full bg-[#121620] rounded-[2rem] p-8 border border-rt-ash/10">
-                            <h4 className="font-mono text-rt-ash text-[10px] uppercase tracking-widest mb-2">Weeks 10–12 (55 pages)</h4>
-                            <h3 className="font-jakarta font-bold text-rt-silver text-xl mb-6">Phase 3: МАЙСТОРСТВО</h3>
+                        <div className="w-full bg-rt-surface rounded-[2rem] p-8 border border-rt-silver-dim/20">
+                            <h4 className="font-mono text-rt-ash text-[10px] uppercase tracking-widest mb-2">Седмици 10-12 (55 страници)</h4>
+                            <h3 className="font-jakarta font-bold text-rt-silver text-xl mb-6">Фаза 3: Майсторство</h3>
 
                             <div className="flex justify-center items-center mb-6 h-[80px] relative">
                                 {/* Aligning Mirrors SVG */}
                                 <svg className="w-20 h-20 absolute" viewBox="0 0 100 100">
-                                    <polygon className="phase-3-mirror-1" style={{ transform: 'translateX(-20px) rotate(-15deg)', opacity: 0.3 }} points="50,10 80,50 50,90 20,50" fill="none" stroke="var(--color-rt-silver)" strokeWidth="2" />
-                                    <polygon className="phase-3-mirror-2" style={{ transform: 'translateX(20px) rotate(15deg)', opacity: 0.3 }} points="50,10 80,50 50,90 20,50" fill="none" stroke="var(--color-rt-gold)" strokeWidth="2" />
+                                    <polygon className="phase-3-mirror-1" style={{ transform: 'translateX(-20px) rotate(-15deg)', opacity: 0.3 }} points="50,10 80,50 50,90 20,50" fill="none" stroke="var(--silver)" strokeWidth="2" />
+                                    <polygon className="phase-3-mirror-2" style={{ transform: 'translateX(20px) rotate(15deg)', opacity: 0.3 }} points="50,10 80,50 50,90 20,50" fill="none" stroke="var(--gold)" strokeWidth="2" />
                                 </svg>
                             </div>
 
                             <div className="bg-rt-obsidian rounded-lg p-3 mb-4">
-                                <p className="font-mono text-[10px] text-rt-silver text-center">Огледало: КАЛИБРИРАНО</p>
+                                <p className="font-mono text-[10px] text-rt-silver text-center">Огледало: Калибрирано</p>
                             </div>
                             <p className="font-outfit text-sm text-rt-cream/70 leading-relaxed">
-                                Визуализация на майстор. Бягство от огледалото. Авторитет на създателя.
+                                Преминаваш от "искане" към "имане". Изграждаш абсолютен авторитет над реалността си. Координираш намерението.
                             </p>
                         </div>
                     </div>
 
                     {/* PHASE 4 */}
-                    <div ref={addToRefs} className="relative z-20 flex flex-col items-center flex-1 max-w-[280px]">
+                    <div ref={addToRefs} className="relative z-20 flex flex-col items-center flex-1 min-w-[280px] shrink-0">
                         {/* End of line dot */}
                         <div className="w-4 h-4 rounded-full bg-rt-void border-2 border-rt-gold mb-6 shadow-[0_0_10px_#C9A961]" />
-                        <div className="w-full bg-[#121620] rounded-[2rem] p-8 border border-rt-gold/30">
-                            <h4 className="font-mono text-rt-ash text-[10px] uppercase tracking-widest mb-2">Week 13 (13 pages)</h4>
-                            <h3 className="font-jakarta font-bold text-rt-gold text-xl mb-6">Phase 4: УСТОЙЧИВОСТ</h3>
+                        <div className="w-full bg-rt-surface rounded-[2rem] p-8 border border-rt-gold/30">
+                            <h4 className="font-mono text-rt-ash text-[10px] uppercase tracking-widest mb-2">Седмица 13 (29 страници)</h4>
+                            <h3 className="font-jakarta font-bold text-rt-gold text-xl mb-6">Фаза 4: Устойчивост</h3>
 
                             <div className="flex justify-center items-center mb-6 h-[80px]">
                                 {/* System Operational Pulse */}
-                                <div className="relative flex h-16 w-16">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rt-amber opacity-20"></span>
-                                    <span className="relative inline-flex rounded-full h-16 w-16 border-4 border-rt-amber/40 bg-rt-void flex items-center justify-center">
-                                        <span className="w-4 h-4 bg-rt-gold rounded-full shadow-[0_0_15px_#C9A961]"></span>
+                                <div className="relative flex h-16 w-16 items-center justify-center">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rt-success opacity-30"></span>
+                                    <span className="relative inline-flex rounded-full h-12 w-12 border-2 border-rt-success/40 bg-rt-void items-center justify-center">
+                                        <span className="w-3 h-3 bg-rt-success rounded-full shadow-[0_0_15px_#4A7C59]"></span>
                                     </span>
                                 </div>
                             </div>
 
-                            <div className="bg-rt-obsidian border border-rt-gold/20 rounded-lg p-3 mb-4">
-                                <p className="font-mono text-[10px] text-rt-gold text-center">СИСТЕМА: АКТИВНА</p>
+                            <div className="bg-rt-obsidian border border-rt-success/30 rounded-lg p-3 mb-4">
+                                <p className="font-mono text-[10px] text-rt-success text-center tracking-widest">СИСТЕМА: АКТИВНА</p>
                             </div>
                             <p className="font-outfit text-sm text-rt-cream/70 leading-relaxed">
-                                Персонална рутина. Ротация на техники. Поддръжка. Продължаваш.
+                                Протокол за поддръжка. Как да реагираш, когато реалността временно се "развали". Продължаваш напред.
                             </p>
                         </div>
                     </div>

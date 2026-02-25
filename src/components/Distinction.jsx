@@ -79,24 +79,24 @@ const Distinction = () => {
     }, []);
 
     const theNoise = [
-        { text: "Закон на привличането" },
+        { text: "„Вибрации“ и „вселената“" },
         { text: "Афирмации без механика" },
-        { text: "\"Вибрации\" и \"вселената\"" },
-        { text: "Гуру, който ти продава мечти" }
+        { text: "Закон на привличането" },
+        { text: "Гурута продаващи мечти" }
     ];
 
     const theTruth = [
         { text: "Механика, не мистика" },
-        { text: "Избираш от поле от варианти, не \"привличаш\"" },
-        { text: "Система с 89-дневен протокол" },
-        { text: "Анонимен автор. Няма гуру. Само инструкции." }
+        { text: "Избор от полето от варианти" },
+        { text: "89-дневен протокол" },
+        { text: "Инструкции, не мотивация" }
     ];
 
     return (
         <section
             ref={containerRef}
             id="системата"
-            className="relative w-full bg-rt-void py-32 px-8 md:px-16"
+            className="relative w-full bg-rt-void py-[144px] px-8 md:px-16"
         >
             <div className="max-w-7xl mx-auto flex flex-col items-center">
 
@@ -104,14 +104,13 @@ const Distinction = () => {
 
                     {/* Left Column 38.2% */}
                     <div className="flex-1 md:flex-[0.382] flex flex-col gap-8 pr-0 md:pr-8">
-                        <h3 className="font-mono text-rt-ash uppercase tracking-widest text-xs mb-4">Шумът</h3>
                         {theNoise.map((item, i) => (
                             <div
                                 key={i}
                                 ref={addLeft}
-                                className="opacity-0 font-outfit text-rt-silver text-lg flex items-start gap-4"
+                                className="opacity-0 font-outfit text-rt-ash text-lg flex items-center gap-4"
                             >
-                                <span className="text-red-500/50">✕</span>
+                                <span className="text-rt-strikethrough text-xl">✕</span>
                                 <span className="strike-target strike-animate">{item.text}</span>
                             </div>
                         ))}
@@ -126,15 +125,14 @@ const Distinction = () => {
                     </div>
 
                     {/* Right Column 61.8% */}
-                    <div className="flex-1 md:flex-[0.618] flex flex-col gap-8 pl-0 md:pl-16">
-                        <h3 className="font-mono text-rt-gold uppercase tracking-widest text-xs mb-4">Огледалото</h3>
+                    <div className="flex-1 md:flex-[0.618] flex flex-col gap-[34px] pl-0 md:pl-16">
                         {theTruth.map((item, i) => (
                             <div
                                 key={i}
                                 ref={addRight}
-                                className="opacity-0 font-jakarta font-bold text-rt-cream text-xl md:text-2xl flex items-start gap-4"
+                                className="opacity-0 font-jakarta font-bold text-rt-cream text-2xl md:text-[2rem] leading-tight flex items-start gap-4"
                             >
-                                <span className="text-rt-gold mt-1">✓</span>
+                                <span className="text-rt-success mt-1">✓</span>
                                 <span className="sweep-target gold-sweep">{item.text}</span>
                             </div>
                         ))}
@@ -144,12 +142,12 @@ const Distinction = () => {
                 {/* The Quote */}
                 <div
                     ref={quoteRef}
-                    className="w-full max-w-4xl text-center flex flex-col items-center bg-rt-charcoal/30 p-12 rounded-[2rem] border border-rt-gold/10"
+                    className="w-full max-w-4xl text-center flex flex-col items-center mt-8"
                 >
                     <Quote className="text-rt-gold/30 w-8 h-8 mb-6" />
-                    <p className="font-cormorant italic text-3xl md:text-5xl text-rt-gold leading-tight">
-                        Зеланд ти даде концепцията.<br />
-                        Тази система ти дава методологията.
+                    <p className="font-cormorant italic text-3xl md:text-[3rem] text-rt-gold leading-tight">
+                        „Инструментите не работят.<br />
+                        <span className="text-rt-silver">Операторът работи.</span>"
                     </p>
                 </div>
 

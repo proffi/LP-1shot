@@ -41,9 +41,9 @@ const FaqAndFooter = () => {
     return (
         <>
             {/* FAQ SECTION */}
-            <section className="w-full bg-rt-void py-32 px-8 flex flex-col items-center border-t border-rt-charcoal">
-                <div className="max-w-4xl mx-auto w-full">
-                    <h2 className="font-cormorant italic text-rt-silver text-4xl mb-16 text-center">Преди Да Вземеш Решение</h2>
+            <section id="въпроси" className="w-full bg-rt-void py-32 px-4 md:px-8 flex flex-col items-center">
+                <div className="max-w-3xl mx-auto w-full">
+                    <h2 className="font-cormorant italic font-bold text-rt-silver text-4xl md:text-5xl mb-16 text-center">Преди да вземеш решение.</h2>
                     <div className="flex flex-col gap-4">
                         {defaultFaqs.map((faq, i) => (
                             <Accordion key={i} question={faq.q} answer={faq.a} />
@@ -70,9 +70,9 @@ const FaqAndFooter = () => {
 
                 <div className="relative z-10 w-full max-w-4xl mx-auto text-center flex flex-col items-center">
                     <h2 className="cta-line-1 font-jakarta font-bold text-rt-silver text-2xl mb-4">Реалността е огледало.</h2>
-                    <h2 className="cta-line-2 font-jakarta font-bold text-rt-cream text-3xl mb-4">Или я оперираш ти,</h2>
+                    <h2 className="cta-line-2 font-jakarta font-bold text-rt-cream text-3xl mb-4">Или ти го оперираш,</h2>
                     <h1 className="cta-line-3 font-cormorant italic font-bold text-rt-gold text-5xl md:text-7xl mb-[55px] drop-shadow-[0_0_30px_rgba(201,169,97,0.3)]">
-                        или тя оперира теб.
+                        или то оперира теб.
                     </h1>
 
                     <p className="cta-meta font-mono text-rt-gold text-lg md:text-xl tracking-wide mb-[34px]">
@@ -95,7 +95,7 @@ const FaqAndFooter = () => {
             </section>
 
             {/* FOOTER */}
-            <footer className="w-full bg-[#000000] rounded-t-[4rem] px-8 pt-24 pb-8 border-t border-rt-charcoal text-rt-cream z-20 relative">
+            <footer className="w-full bg-rt-obsidian px-8 pt-24 pb-8 border-t border-rt-silver-dim/10 text-rt-cream z-20 relative">
                 <div className="max-w-7xl mx-auto">
 
                     <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-16 mb-24">
@@ -112,10 +112,10 @@ const FaqAndFooter = () => {
 
                         {/* Center */}
                         <div className="flex gap-8 flex-wrap justify-center">
-                            <a href="#системата" className="font-outfit text-rt-ash text-sm hover:text-rt-gold transition-colors">Системата</a>
-                            <a href="#книгите" className="font-outfit text-rt-ash text-sm hover:text-rt-gold transition-colors">Книгите</a>
-                            <a href="#въпроси" className="font-outfit text-rt-ash text-sm hover:text-rt-gold transition-colors">Въпроси</a>
-                            <a href="#контакт" className="font-outfit text-rt-ash text-sm hover:text-rt-gold transition-colors">Контакт</a>
+                            <a href="#системата" className="font-outfit font-bold tracking-widest uppercase text-rt-ash text-xs hover:text-rt-gold transition-colors">Системата</a>
+                            <a href="#разликата" className="font-outfit font-bold tracking-widest uppercase text-rt-ash text-xs hover:text-rt-gold transition-colors">Огледалото</a>
+                            <a href="#книгите" className="font-outfit font-bold tracking-widest uppercase text-rt-ash text-xs hover:text-rt-gold transition-colors">Книгите</a>
+                            <a href="#въпроси" className="font-outfit font-bold tracking-widest uppercase text-rt-ash text-xs hover:text-rt-gold transition-colors">Въпроси</a>
                         </div>
 
                         {/* Right */}
@@ -130,9 +130,9 @@ const FaqAndFooter = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-rt-charcoal">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-rt-silver-dim/10">
                         {/* Left Bottom */}
-                        <p className="font-outfit text-rt-ash text-[10px]">© 2026. Всички права запазени.</p>
+                        <p className="font-outfit text-rt-ash text-[10px] uppercase tracking-widest">© 2026. Всички права запазени.</p>
 
                         {/* Center Bottom (Tiny logo) */}
                         <svg width="16" height="16" viewBox="0 0 100 100" fill="none" stroke="var(--color-rt-gold)" strokeWidth="2" className="opacity-50">
@@ -184,11 +184,11 @@ const Accordion = ({ question, answer }) => {
 
     return (
         <div
-            className={`w-full bg-[#121620] rounded-[1.5rem] border ${isOpen ? 'border-rt-gold/40' : 'border-rt-charcoal'} transition-colors duration-300 overflow-hidden cursor-pointer`}
+            className={`w-full bg-rt-surface rounded-[1.5rem] border ${isOpen ? 'border-rt-gold/40' : 'border-rt-silver-dim/20'} transition-colors duration-300 overflow-hidden cursor-pointer`}
             onClick={() => setIsOpen(!isOpen)}
         >
             <div className="p-6 md:p-8 flex justify-between items-center">
-                <h4 className="font-jakarta font-bold text-rt-silver text-sm md:text-base pr-4">{question}</h4>
+                <h4 className="font-jakarta font-bold text-rt-silver text-sm md:text-base pr-4 leading-relaxed">{question}</h4>
                 <div
                     className="w-6 h-6 flex items-center justify-center flex-shrink-0 text-rt-gold transition-transform duration-300"
                     style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)' }}
@@ -201,7 +201,7 @@ const Accordion = ({ question, answer }) => {
                 </div>
             </div>
             <div ref={contentRef} className="h-0 overflow-hidden">
-                <div className="px-6 md:px-8 pb-8 pt-2 font-outfit text-rt-cream/70 text-sm opacity-0 -translate-y-2 leading-relaxed">
+                <div className="px-6 md:px-8 pb-8 pt-2 font-outfit text-rt-cream/70 text-sm md:text-base opacity-0 -translate-y-2 leading-relaxed">
                     {answer}
                 </div>
             </div>
