@@ -64,10 +64,18 @@ const Philosophy = () => {
             ref={sectionRef}
             className="relative w-full py-48 bg-rt-obsidian overflow-hidden"
         >
-            {/* Background Parallax Image / Generative geometry hint */}
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]">
-                <div ref={bgRef} className="w-full h-[130%] -top-[15%] relative">
-                    <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            {/* Background Image / Generative geometry hint */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+                <div ref={bgRef} className="w-full h-[130%] -top-[15%] relative opacity-20"
+                    style={{
+                        backgroundImage: 'url("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop")',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        mixBlendMode: 'luminosity'
+                    }}>
+                    {/* Dark overlay to ensure text contrast */}
+                    <div className="absolute inset-0 bg-rt-obsidian/80 mix-blend-multiply" />
+                    <svg className="w-full h-full opacity-30" viewBox="0 0 100 100" preserveAspectRatio="none">
                         {/* Abstract massive golden geometry */}
                         <path d="M 0 50 Q 50 0 100 50 T 0 50" fill="none" stroke="var(--color-rt-gold)" strokeWidth="0.2" />
                         <circle cx="50" cy="50" r="30" fill="none" stroke="var(--color-rt-gold)" strokeWidth="0.1" />
@@ -80,23 +88,25 @@ const Philosophy = () => {
                 <div className="w-full grid-golden gap-16 md:gap-8 mb-[89px]">
 
                     {/* Left Text */}
-                    <div ref={textLeftRef} className="flex flex-col items-start opacity-0">
-                        <p className="font-outfit text-rt-ash text-sm mb-4 uppercase tracking-widest pl-4 border-l border-rt-ash/20">
+                    <div ref={textLeftRef} className="flex flex-col items-start opacity-0 bg-rt-obsidian/60 p-8 rounded-3xl backdrop-blur-sm border border-rt-ash/10">
+                        <p className="font-outfit text-rt-silver text-sm mb-4 uppercase tracking-widest pl-4 border-l border-rt-silver/40 drop-shadow-md">
                             Популярната „манифестация" ти казва:
                         </p>
-                        <h2 className="font-cormorant italic text-rt-silver text-3xl md:text-5xl leading-tight opacity-70">
+                        <h2 className="font-cormorant italic text-rt-cream text-3xl md:text-5xl leading-tight drop-shadow-lg">
                             „Привличаш с енергия<br />и вибрации."
                         </h2>
                     </div>
 
                     {/* Right Text */}
-                    <div ref={textRightRef} className="flex flex-col items-end opacity-0text-right pt-16 md:pt-32">
-                        <p className="font-outfit text-rt-gold/70 text-sm mb-4 uppercase tracking-widest pr-4 border-r border-rt-gold/30 w-full text-right">
-                            Тази система ти казва:
-                        </p>
-                        <h2 className="font-cormorant italic text-rt-gold text-4xl md:text-6xl leading-tight text-right drop-shadow-[0_0_20px_rgba(201,169,97,0.1)]">
-                            „Избираш от поле от вече съществуващи варианти."
-                        </h2>
+                    <div ref={textRightRef} className="flex flex-col items-end opacity-0 text-right pt-16 md:pt-32">
+                        <div className="bg-rt-obsidian/60 p-8 rounded-3xl backdrop-blur-sm border border-rt-gold/10 inline-flex flex-col items-end">
+                            <p className="font-outfit text-rt-gold text-sm mb-4 uppercase tracking-widest pr-4 border-r border-rt-gold/50 w-full text-right drop-shadow-md">
+                                Тази система ти казва:
+                            </p>
+                            <h2 className="font-cormorant italic text-rt-gold text-4xl md:text-6xl leading-tight text-right drop-shadow-[0_0_20px_rgba(201,169,97,0.3)]">
+                                „Избираш от поле от вече съществуващи варианти."
+                            </h2>
+                        </div>
                     </div>
 
                 </div>

@@ -116,9 +116,22 @@ const Hero = () => {
     return (
         <section
             ref={containerRef}
-            className="relative w-full h-[100dvh] overflow-hidden bg-gradient-to-b from-rt-void to-rt-obsidian flex items-end pb-[10vh]"
+            className="relative w-full h-[100dvh] overflow-hidden bg-rt-void flex items-end pb-[10vh]"
         >
-            <div ref={canvasContainerRef} className="absolute inset-0 z-0 pointer-events-none">
+            {/* Abstract moody background image */}
+            <div
+                className="absolute inset-0 z-0 opacity-20"
+                style={{
+                    backgroundImage: 'url("https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2000&auto=format&fit=crop")',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    mixBlendMode: 'luminosity'
+                }}
+            />
+            {/* Gradient overlay for text readability */}
+            <div className="absolute inset-0 z-0 bg-gradient-to-t from-rt-obsidian via-rt-void/80 to-transparent pointer-events-none" />
+
+            <div ref={canvasContainerRef} className="absolute inset-0 z-0 pointer-events-none opacity-40">
                 <GeometricBackground />
             </div>
 
@@ -127,18 +140,18 @@ const Hero = () => {
                 <div className="flex flex-col items-start justify-end w-full">
                     <div className="mb-[34px]">
                         <h1 className="flex flex-col items-start uppercase tracking-widest text-[#E8E8E8] font-jakarta font-bold text-lg md:text-xl">
-                            <span ref={addToRefs}>Реалността не е</span>
-                            <span ref={addToRefs}>това, което</span>
+                            <span ref={addToRefs} className="drop-shadow-md">Реалността не е</span>
+                            <span ref={addToRefs} className="drop-shadow-md">това, което</span>
                         </h1>
                         <h2
                             ref={addToRefs}
-                            className="font-cormorant italic font-bold text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.1] text-rt-gold mt-1"
+                            className="font-cormorant italic font-bold text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.1] text-rt-gold mt-1 drop-shadow-lg"
                         >
                             мислиш че е.
                         </h2>
                     </div>
 
-                    <p ref={addToRefs} className="font-outfit text-rt-ash text-lg mb-[21px] max-w-md w-full">
+                    <p ref={addToRefs} className="font-outfit text-rt-silver text-lg mb-[21px] max-w-md w-full drop-shadow-md">
                         И не, това не е поредната книга за „манифестация".
                     </p>
 
