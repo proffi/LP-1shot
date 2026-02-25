@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=JetBrains+Mono:wght@400&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-nura-moss: #2E4036;
+  --color-nura-clay: #CC5833;
+  --color-nura-cream: #F2F0E9;
+  --color-nura-charcoal: #1A1A1A;
+  
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+  --font-garamond: "Cormorant Garamond", serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-nura-cream text-nura-charcoal font-jakarta antialiased;
+  }
+}
+
+/* Global Noise Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.05;
+}
+
+/* GSAP ScrollSmoother custom scrollbar hiding if needed */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-nura-moss);
+  border-radius: 4px;
+}
+
+/* Base resets & utilities */
+.clip-text {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
