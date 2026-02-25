@@ -63,12 +63,47 @@ const ComparisonTable = () => {
     return (
         <section
             id="разликата"
-            className="w-full bg-rt-void py-32 px-4 md:px-16 relative overflow-hidden"
+            className="w-full py-32 px-4 md:px-16 relative overflow-hidden"
+            style={{
+                /* Layer 1: Cold Gradient */
+                background: 'linear-gradient(180deg, #080a12 0%, #0a0d18 50%, #0c1020 100%)'
+            }}
         >
-            {/* Continuous Sacred Geometry Grid */}
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-20 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(201, 169, 97, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 169, 97, 0.2) 1px, transparent 1px)', backgroundSize: '34px 34px' }} />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,_rgba(201,169,97,0.15)_0%,_transparent_70%)] pointer-events-none" />
-            <div className="max-w-5xl mx-auto flex flex-col items-center">
+            {/* Layer 2: Clinical Grid */}
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] mix-blend-screen" style={{
+                backgroundImage: 'linear-gradient(rgba(232, 232, 232, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 232, 232, 1) 1px, transparent 1px)',
+                backgroundSize: '40px 40px'
+            }} />
+
+            {/* Layer 3: Left/Right Color Temperature Split */}
+            <div className="absolute inset-0 z-0 pointer-events-none flex">
+                <div className="w-[38.2%] h-full bg-[rgba(204,68,68,0.01)]" /> {/* Cold wash left */}
+                <div className="w-[61.8%] h-full bg-[rgba(201,169,97,0.015)]" /> {/* Warm wash right */}
+            </div>
+
+            {/* Layer 4: Cross-Hatch Marks (Left Side Only) */}
+            <div className="absolute top-0 left-0 w-[38.2%] h-full pointer-events-none z-0 overflow-hidden hidden md:block">
+                {[...Array(8)].map((_, i) => (
+                    <svg key={`fail-mark-${i}`} className="absolute w-[10px] h-[10px]" viewBox="0 0 10 10" style={{
+                        left: `${Math.random() * 80 + 10}%`,
+                        top: `${Math.random() * 80 + 10}%`
+                    }}>
+                        <path d="M1 1 L9 9 M9 1 L1 9" stroke="rgba(204,68,68,0.025)" strokeWidth="1" />
+                    </svg>
+                ))}
+            </div>
+
+            {/* Layer 5: Noise */}
+            <div className="absolute inset-0 pointer-events-none z-0 mix-blend-overlay opacity-[0.04]">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                    <filter id="comparisonNoise">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" />
+                    </filter>
+                    <rect width="100%" height="100%" filter="url(#comparisonNoise)" />
+                </svg>
+            </div>
+
+            <div className="max-w-5xl mx-auto flex flex-col items-center relative z-10">
 
                 <h2 className="font-cormorant italic font-bold text-rt-gold text-4xl md:text-[3.5rem] mb-16 text-center">
                     Разликата е всичко.

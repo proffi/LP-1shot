@@ -43,11 +43,62 @@ const BooksShowcase = () => {
         <section
             ref={containerRef}
             id="книгите"
-            className="relative w-full bg-rt-void py-24 px-8 md:px-16 overflow-hidden"
+            className="relative w-full py-24 px-8 md:px-16 overflow-hidden"
+            style={{
+                /* Layer 1: Architectural Dark Gradient */
+                background: 'linear-gradient(180deg, #0a0e1a 0%, #0d1020 20%, #101425 50%, #0d1020 80%, #080b16 100%)'
+            }}
         >
-            {/* Continuous Sacred Geometry Grid */}
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-20 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(232, 232, 232, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 232, 232, 0.2) 1px, transparent 1px)', backgroundSize: '89px 89px' }} />
-            <div className="max-w-7xl mx-auto flex flex-col items-center gap-16">
+            {/* Layer 2: Display Grid (Architectural Lines) */}
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-40 mix-blend-screen hidden md:block" style={{
+                backgroundImage: 'linear-gradient(rgba(201, 169, 97, 0.02) 0.5px, transparent 0.5px), linear-gradient(90deg, rgba(201, 169, 97, 0.02) 0.5px, transparent 0.5px)',
+                backgroundSize: '55px 89px'
+            }} />
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-40 mix-blend-screen md:hidden" style={{
+                backgroundImage: 'linear-gradient(rgba(201, 169, 97, 0.02) 0.5px, transparent 0.5px), linear-gradient(90deg, rgba(201, 169, 97, 0.02) 0.5px, transparent 0.5px)',
+                backgroundSize: '144px 89px'
+            }} />
+
+            {/* Layer 3: Spotlight Pools (Behind Each Card) */}
+            <div className="absolute top-[40%] left-[19%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none z-0 hidden md:block" style={{
+                background: 'radial-gradient(circle, rgba(232,232,232,0.03) 0%, transparent 50%)'
+            }} />
+            <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none z-0" style={{
+                background: 'radial-gradient(circle, rgba(201,169,97,0.05) 0%, transparent 50%)'
+            }} />
+            <div className="absolute top-[40%] left-[81%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none z-0 hidden md:block" style={{
+                background: 'radial-gradient(circle, rgba(201,169,97,0.03) 0%, transparent 50%)'
+            }} />
+
+            {/* Layer 4: Corner Decorative Geometry */}
+            <div className="absolute top-8 left-8 w-[120px] h-[120px] pointer-events-none z-0 opacity-50">
+                <svg viewBox="0 0 100 100" fill="none" stroke="rgba(201,169,97,0.05)" strokeWidth="0.5">
+                    <path d="M100 0 A 100 100 0 0 0 0 100" />
+                    <circle cx="0" cy="0" r="2" fill="rgba(201,169,97,0.05)" />
+                    <circle cx="100" cy="100" r="2" fill="rgba(201,169,97,0.05)" />
+                    <line x1="0" y1="0" x2="100" y2="100" />
+                </svg>
+            </div>
+            <div className="absolute bottom-8 right-8 w-[120px] h-[120px] pointer-events-none z-0 opacity-50 rotate-180">
+                <svg viewBox="0 0 100 100" fill="none" stroke="rgba(201,169,97,0.05)" strokeWidth="0.5">
+                    <path d="M100 0 A 100 100 0 0 0 0 100" />
+                    <circle cx="0" cy="0" r="2" fill="rgba(201,169,97,0.05)" />
+                    <circle cx="100" cy="100" r="2" fill="rgba(201,169,97,0.05)" />
+                    <line x1="0" y1="0" x2="100" y2="100" />
+                </svg>
+            </div>
+
+            {/* Layer 5: Noise */}
+            <div className="absolute inset-0 pointer-events-none z-0 mix-blend-overlay opacity-[0.035]">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                    <filter id="vaultNoise">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" />
+                    </filter>
+                    <rect width="100%" height="100%" filter="url(#vaultNoise)" />
+                </svg>
+            </div>
+
+            <div className="max-w-7xl mx-auto flex flex-col items-center gap-16 relative z-10">
 
                 <div className="w-full flex flex-col md:flex-row gap-8">
 

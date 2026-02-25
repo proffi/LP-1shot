@@ -28,6 +28,16 @@ const ContentPreview = () => {
                     }
                 }
             );
+
+            // Add Tailwind animations for dust particles
+            if (!document.getElementById('archive-keyframes')) {
+                const style = document.createElement('style');
+                style.id = 'archive-keyframes';
+                style.innerHTML = `
+                    @keyframes float { from { transform: translate(0, 0); } 25% { transform: translate(15px, -15px); } 50% { transform: translate(-10px, 15px); } 75% { transform: translate(-15px, -10px); } to { transform: translate(15px, 15px); } }
+                `;
+                document.head.appendChild(style);
+            }
         }, containerRef);
         return () => ctx.revert();
     }, []);
@@ -56,13 +66,44 @@ const ContentPreview = () => {
     return (
         <section
             ref={containerRef}
-            className="w-full bg-rt-void py-32 px-8 md:px-16 border-b border-rt-silver-dim/10 relative overflow-hidden"
+            className="w-full py-32 px-8 md:px-16 border-b border-rt-silver-dim/10 relative overflow-hidden"
+            style={{
+                /* Layer 1: Layered Dark Gradient */
+                background: 'linear-gradient(180deg, #0a0e1a 0%, #0c1020 40%, #0e1224 60%, #0a0e1a 100%)'
+            }}
         >
-            {/* Continuous Sacred Geometry Grid */}
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-20 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(201, 169, 97, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 169, 97, 0.2) 1px, transparent 1px)', backgroundSize: '55px 55px' }} />
-            {/* Diagonal geometric cuts */}
-            <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-gradient-to-bl from-rt-gold/5 to-transparent skew-x-12 transform origin-top-right pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[50%] h-[50%] bg-gradient-to-tr from-rt-silver/5 to-transparent -skew-x-12 transform origin-bottom-left pointer-events-none" />
+            {/* Layer 2: Bookshelf Lines */}
+            <div className="absolute top-0 left-0 w-full h-[50%] pointer-events-none z-0 flex flex-col items-center">
+                <div className="w-full h-[1px] mt-[89px]" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(201,169,97,0.03) 20%, rgba(201,169,97,0.03) 80%, transparent 100%)' }} />
+                <div className="w-full h-[1px] mt-[55px]" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(201,169,97,0.03) 20%, rgba(201,169,97,0.03) 80%, transparent 100%)' }} /> {/* 144 - 89 */}
+                <div className="w-full h-[1px] mt-[89px]" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(201,169,97,0.03) 20%, rgba(201,169,97,0.03) 80%, transparent 100%)' }} /> {/* 233 - 144 */}
+            </div>
+
+            {/* Layer 3: Dust Particles */}
+            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+                {[...Array(15)].map((_, i) => (
+                    <div key={`dust-${i}`} className="absolute w-[2px] h-[2px] rounded-full bg-[rgba(232,232,232,0.04)] animate-[float_15s_infinite_alternate_ease-in-out]" style={{
+                        left: `${Math.random() * 100}%`,
+                        top: `${Math.random() * 100}%`,
+                        animationDelay: `${-(Math.random() * 10)}s`
+                    }} />
+                ))}
+            </div>
+
+            {/* Layer 4: Faint Page Texture */}
+            <div className="absolute inset-0 pointer-events-none z-0 opacity-10 mix-blend-overlay" style={{
+                backgroundImage: 'repeating-linear-gradient(45deg, rgba(240,237,228,0.01) 0px, rgba(240,237,228,0.01) 1px, transparent 1px, transparent 21px)'
+            }} />
+
+            {/* Layer 5: Noise */}
+            <div className="absolute inset-0 pointer-events-none z-0 mix-blend-overlay opacity-[0.03]">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                    <filter id="archiveNoise">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" />
+                    </filter>
+                    <rect width="100%" height="100%" filter="url(#archiveNoise)" />
+                </svg>
+            </div>
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-24">

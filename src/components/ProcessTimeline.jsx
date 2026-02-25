@@ -74,6 +74,17 @@ const ProcessTimeline = () => {
                     });
                 }
             });
+
+            // Add Tailwind animations for data streams and scanline
+            if (!document.getElementById('process-keyframes')) {
+                const style = document.createElement('style');
+                style.id = 'process-keyframes';
+                style.innerHTML = `
+                    @keyframes stream { from { transform: translateY(100vh); } to { transform: translateY(-100vh); } }
+                    @keyframes scan { from { transform: translateY(-100px); } to { transform: translateY(2500px); } }
+                `;
+                document.head.appendChild(style);
+            }
         }, containerRef);
         return () => ctx.revert();
     }, []);
@@ -82,13 +93,54 @@ const ProcessTimeline = () => {
         <section
             ref={containerRef}
             id="системата"
-            className="relative w-full bg-rt-void py-32 overflow-hidden border-y border-rt-silver-dim/10"
+            className="relative w-full py-32 overflow-hidden border-y border-rt-silver-dim/10"
+            style={{ backgroundColor: '#000000' }}
         >
-            {/* Highly Visible Grid Overlay */}
-            <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(201,169,97,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,97,0.3) 1px, transparent 1px)', backgroundSize: '55px 55px' }} />
+            {/* Layer 2: Full-Viewport Grid (The Protocol Matrix) */}
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-40 mix-blend-screen" style={{
+                backgroundImage: 'radial-gradient(circle, rgba(201,169,97,0.04) 2px, transparent 2px)',
+                backgroundSize: '34px 34px'
+            }} />
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-70 mix-blend-screen hidden md:block" style={{
+                backgroundImage: 'radial-gradient(circle, rgba(201,169,97,0.07) 3px, transparent 3px)',
+                backgroundSize: '170px 170px'
+            }} />
 
-            {/* Glowing Orb in Center */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-rt-gold/10 rounded-full blur-[100px] pointer-events-none"></div>
+            {/* Layer 3: Data Streams (Vertical Moving Lines) */}
+            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden h-[150%] -top-[25%] hidden md:block">
+                {[89, 233, 377, 610, 987, 1200, 1500].map((pos, i) => (
+                    <div key={`stream-${i}`} className="absolute top-0 bottom-0 w-[1px] animate-[stream_20s_infinite_linear]" style={{
+                        left: `${pos}px`,
+                        background: 'linear-gradient(180deg, transparent 0%, rgba(201,169,97,0.03) 20%, rgba(201,169,97,0.03) 80%, transparent 100%)',
+                        animationDelay: `${-(i * 3)}s`
+                    }} />
+                ))}
+            </div>
+
+            {/* Layer 4: Horizontal Scan Line */}
+            <div className="absolute top-0 left-0 w-full h-[1px] z-0 pointer-events-none hidden md:block animate-[scan_13s_infinite_linear]" style={{
+                background: 'rgba(201,169,97,0.06)',
+                boxShadow: '0 0 21px rgba(201,169,97,0.05)'
+            }} />
+
+            {/* Layer 5: Phase Indicators (Background Numbers) */}
+            <div className="absolute top-[30%] left-0 w-[150%] h-full pointer-events-none z-0 overflow-hidden flex gap-[20vw] px-16 opacity-20">
+                {['01', '02', '03', '04'].map((num) => (
+                    <div key={num} className="font-mono text-[15rem] leading-none text-[rgba(201,169,97,0.02)] select-none shrink-0">
+                        {num}
+                    </div>
+                ))}
+            </div>
+
+            {/* Layer 6: Noise */}
+            <div className="absolute inset-0 pointer-events-none z-0 mix-blend-overlay opacity-[0.03]">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                    <filter id="processNoise">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" />
+                    </filter>
+                    <rect width="100%" height="100%" filter="url(#processNoise)" />
+                </svg>
+            </div>
 
             <div className="max-w-7xl mx-auto px-8 md:px-16 mb-24 text-center relative z-10">
                 <h2 className="font-cormorant italic text-rt-gold text-4xl md:text-5xl mb-6">Ден по ден. Стъпка по стъпка.</h2>

@@ -40,6 +40,28 @@ const Philosophy = () => {
                     }
                 }
             );
+
+            // Parallax for the mirror geometry
+            gsap.to('.mirror-parallax', {
+                y: 100,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            });
+
+            // Add Tailwind animations for particles
+            if (!document.getElementById('philosophy-keyframes')) {
+                const style = document.createElement('style');
+                style.id = 'philosophy-keyframes';
+                style.innerHTML = `
+                    @keyframes drift { from { transform: translateX(-50px); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } to { transform: translateX(50px); opacity: 0; } }
+                `;
+                document.head.appendChild(style);
+            }
         }, sectionRef);
 
         return () => ctx.revert();
@@ -48,16 +70,73 @@ const Philosophy = () => {
     return (
         <section
             ref={sectionRef}
-            className="w-full bg-rt-void py-[144px] px-8 md:px-16 border-y border-rt-silver-dim/10 relative overflow-hidden"
+            className="w-full py-[144px] px-8 md:px-16 border-y border-rt-silver-dim/10 relative overflow-hidden"
+            style={{ backgroundColor: '#000000' }}
         >
-            {/* Continuous Sacred Geometry Grid */}
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-20 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(232, 232, 232, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 232, 232, 0.2) 1px, transparent 1px)', backgroundSize: '89px 89px' }} />
-            {/* Massive Watermark Typography */}
-            <div className="absolute -left-20 top-[10%] opacity-[0.03] text-[20vw] font-cormorant font-bold italic text-white pointer-events-none leading-none select-none">
-                ОГЛЕДАЛОТО
+            {/* Layer 2: The Mirror Reflection (The Showstopper) */}
+            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden mirror-parallax">
+
+                {/* Left Geometry (The Old Model - Silver, Blurred, Incomplete) */}
+                <div className="absolute top-[20%] left-[5%] w-[30vw] h-[60vh] opacity-40 blur-[1px]">
+                    <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
+                        {/* Incomplete Spiral */}
+                        <path d="M50 50 A 1 1 0 0 1 51 50 A 2 2 0 0 1 51 52 A 3 3 0 0 1 48 52 A 5 5 0 0 1 48 47 A 8 8 0 0 1 56 47 A 13 13 0 0 1 56 60 A 21 21 0 0 1 35 60" stroke="rgba(232,232,232,0.06)" strokeWidth="0.5" strokeDasharray="2 1" fill="none" />
+                        {/* Disconnected Hex */}
+                        <path d="M 50 15 L 80 32" stroke="rgba(232,232,232,0.06)" strokeWidth="0.2" fill="none" />
+                        <path d="M 20 68 L 20 32" stroke="rgba(232,232,232,0.06)" strokeWidth="0.2" fill="none" />
+                        {/* Faded Nodes */}
+                        <circle cx="50" cy="50" r="1.5" fill="rgba(232,232,232,0.03)" />
+                        <circle cx="20" cy="32" r="1.5" fill="rgba(232,232,232,0.06)" />
+                        <circle cx="80" cy="32" r="1.5" fill="rgba(232,232,232,0.06)" />
+                    </svg>
+                </div>
+
+                {/* Right Geometry (The New Model - Gold, Sharp, Complete) */}
+                <div className="absolute top-[20%] right-[5%] w-[30vw] h-[60vh] opacity-80 scale-x-[-1]">
+                    <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
+                        {/* Complete Spiral */}
+                        <path d="M50 50 A 1 1 0 0 1 51 50 A 2 2 0 0 1 51 52 A 3 3 0 0 1 48 52 A 5 5 0 0 1 48 47 A 8 8 0 0 1 56 47 A 13 13 0 0 1 56 60 A 21 21 0 0 1 35 60 A 34 34 0 0 1 35 26 A 55 55 0 0 1 90 26 A 89 89 0 0 1 90 115" stroke="rgba(201,169,97,0.10)" strokeWidth="0.5" fill="none" />
+                        {/* Complete Hex */}
+                        <path d="M 50 15 L 80 32 L 80 68 L 50 85 L 20 68 L 20 32 Z" stroke="rgba(201,169,97,0.10)" strokeWidth="0.2" fill="none" />
+                        <path d="M 50 15 L 50 85 M 20 32 L 80 68 M 20 68 L 80 32" stroke="rgba(201,169,97,0.10)" strokeWidth="0.2" fill="none" />
+                        {/* Solid Nodes */}
+                        <circle cx="50" cy="50" r="1.5" fill="rgba(201,169,97,0.10)" />
+                        <circle cx="50" cy="15" r="1.5" fill="rgba(201,169,97,0.10)" />
+                        <circle cx="50" cy="85" r="1.5" fill="rgba(201,169,97,0.10)" />
+                        <circle cx="20" cy="32" r="1.5" fill="rgba(201,169,97,0.10)" />
+                        <circle cx="80" cy="68" r="1.5" fill="rgba(201,169,97,0.10)" />
+                        <circle cx="20" cy="68" r="1.5" fill="rgba(201,169,97,0.10)" />
+                        <circle cx="80" cy="32" r="1.5" fill="rgba(201,169,97,0.10)" />
+                    </svg>
+                </div>
+
+                {/* The Gap (Center Particles) */}
+                <div className="absolute top-0 left-[35%] w-[30%] h-full">
+                    {[...Array(25)].map((_, i) => (
+                        <div key={`part-${i}`} className="absolute w-[2px] h-[2px] rounded-full animate-[drift_10s_infinite_linear]" style={{
+                            left: `${Math.random() * 100}%`,
+                            top: `${Math.random() * 100}%`,
+                            animationDelay: `${-(Math.random() * 10)}s`,
+                            background: 'linear-gradient(90deg, rgba(232,232,232,0.5), rgba(201,169,97,0.8))'
+                        }} />
+                    ))}
+                </div>
             </div>
-            {/* Top gold soft glow */}
-            <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-rt-gold/10 to-transparent pointer-events-none blur-3xl" />
+
+            {/* Layer 3: Center Glow (The Threshold) */}
+            <div className="absolute inset-0 z-0 pointer-events-none mix-blend-screen" style={{
+                background: 'radial-gradient(ellipse 8% 70% at 50% 50%, rgba(201,169,97,0.06) 0%, transparent 100%)'
+            }} />
+
+            {/* Layer 4: Noise */}
+            <div className="absolute inset-0 pointer-events-none z-0 mix-blend-overlay opacity-[0.04]">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                    <filter id="philosophyNoise">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" />
+                    </filter>
+                    <rect width="100%" height="100%" filter="url(#philosophyNoise)" />
+                </svg>
+            </div>
 
             <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 relative z-10">
 
