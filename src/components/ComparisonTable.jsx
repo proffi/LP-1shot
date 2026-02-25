@@ -63,8 +63,9 @@ const ComparisonTable = () => {
     return (
         <section
             id="разликата"
-            className="w-full bg-rt-void py-32 px-4 md:px-16"
+            className="w-full bg-[#05070a] py-32 px-4 md:px-16 relative overflow-hidden"
         >
+            <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_0%,_var(--color-rt-gold-dim)_0%,_transparent_70%)] opacity-30 pointer-events-none" />
             <div className="max-w-5xl mx-auto flex flex-col items-center">
 
                 <h2 className="font-cormorant italic font-bold text-rt-gold text-4xl md:text-[3.5rem] mb-16 text-center">

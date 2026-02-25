@@ -95,8 +95,8 @@ const Distinction = () => {
     return (
         <section
             ref={containerRef}
-            id="системата"
-            className="relative w-full bg-rt-void py-[144px] px-8 md:px-16"
+            id="разликата"
+            className="relative w-full bg-gradient-to-b from-rt-void to-[#05070a] py-[144px] px-8 md:px-16"
         >
             <div className="max-w-7xl mx-auto flex flex-col items-center">
 

@@ -31,7 +31,7 @@ const ProblemAgitation = () => {
     return (
         <section
             ref={containerRef}
-            className="w-full bg-rt-obsidian py-[144px] px-8 md:px-16 border-y border-rt-strikethrough/10 relative overflow-hidden"
+            className="w-full bg-[radial-gradient(ellipse_at_center,_#1a100c_0%,_var(--color-rt-obsidian)_100%)] py-[144px] px-8 md:px-16 border-y border-rt-strikethrough/10 relative overflow-hidden"
         >
             {/* Faint Amber Tint for agitation */}
             <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#D4A843]/5 to-transparent pointer-events-none" />

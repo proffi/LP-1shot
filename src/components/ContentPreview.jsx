@@ -56,7 +56,7 @@ const ContentPreview = () => {
     return (
         <section
             ref={containerRef}
-            className="w-full bg-rt-void py-32 px-8 md:px-16 border-b border-rt-silver-dim/10 relative overflow-hidden"
+            className="w-full bg-gradient-to-b from-rt-void to-[#0c1018] py-32 px-8 md:px-16 border-b border-rt-silver-dim/10 relative overflow-hidden"
         >
             <div className="absolute inset-0 z-0 bg-gradient-to-b from-rt-surface to-rt-void opacity-50" />
 

@@ -74,16 +74,18 @@ const ProcessTimeline = () => {
                     });
                 }
             });
-        }, containerRef);
+        }, sectionRef);
         return () => ctx.revert();
     }, []);
 
     return (
         <section
-            ref={containerRef}
-            id="как работи"
-            className="relative w-full bg-rt-void py-32 overflow-hidden"
+            ref={sectionRef}
+            id="системата"
+            className="relative w-full bg-[#0c1018] py-32 overflow-hidden border-y border-rt-silver-dim/10"
         >
+            {/* Subtle Grid Overlay */}
+            <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(201,169,97,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,97,0.2) 1px, transparent 1px)', backgroundSize: '55px 55px' }} />
             <div className="max-w-7xl mx-auto px-8 md:px-16 mb-24 text-center">
                 <h2 className="font-cormorant italic text-rt-gold text-4xl md:text-5xl mb-6">Ден по ден. Стъпка по стъпка.</h2>
                 <p className="font-outfit text-rt-cream text-lg max-w-2xl mx-auto opacity-80">

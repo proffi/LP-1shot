@@ -48,7 +48,7 @@ const Philosophy = () => {
     return (
         <section
             ref={sectionRef}
-            className="w-full bg-rt-void py-[144px] px-8 md:px-16 border-y border-rt-silver-dim/10 relative"
+            className="w-full bg-gradient-to-b from-[#0c1018] to-rt-obsidian py-[144px] px-8 md:px-16 border-y border-rt-silver-dim/10 relative"
         >
             <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 relative">
 

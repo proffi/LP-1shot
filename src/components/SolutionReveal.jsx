@@ -31,7 +31,7 @@ const SolutionReveal = () => {
     return (
         <section
             ref={containerRef}
-            className="w-full bg-rt-void py-[144px] px-8 md:px-16"
+            className="w-full bg-[#0c1018] py-[144px] px-8 md:px-16 border-t border-rt-gold/10"
         >
             <div
                 ref={contentRef}
