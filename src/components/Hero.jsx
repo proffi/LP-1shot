@@ -162,18 +162,30 @@ const Hero = () => {
                     </div>
                 </div>
 
-                {/* Right Column (61.8%) - empty or decorative space, supporting Golden Ratio layout rules */}
-                <div className="hidden md:flex flex-col items-end justify-end">
+                {/* Right Column (61.8%) - Books Preview Presentation */}
+                <div className="hidden md:flex flex-col items-center justify-center relative min-h-[500px] w-full mt-12 md:mt-0">
                     {/* The scroll indicator element mentioned */}
-                    <div className="flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity">
+                    <div className="absolute bottom-0 right-0 flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity z-30">
                         <span
                             onMouseEnter={handleHover369}
-                            className="font-mono text-rt-ash text-xs tracking-[0.05em] cursor-default"
+                            className="font-mono text-rt-silver text-xs tracking-[0.05em] cursor-default"
                         >
-                            ↓ <span className="text-rt-cream font-bold">369</span> страници механика
+                            ↓ <span className="text-white font-bold">369</span> страници механика
                         </span>
                         {/* Tiny pulsing golden line */}
                         <div className="w-[1px] h-8 bg-rt-gold animate-pulse"></div>
+                    </div>
+
+                    {/* Books Image Stack Layout */}
+                    <div className="relative w-full h-full flex items-center justify-center group pointer-events-auto mt-16">
+                        {/* Book 1 */}
+                        <div className="absolute z-10 w-56 aspect-[3/4] shadow-[0_20px_50px_rgba(0,0,0,0.9)] transform -rotate-6 -translate-x-16 transition-transform duration-700 group-hover:-rotate-12 group-hover:-translate-x-24 rounded-lg overflow-hidden border border-rt-silver/30 bg-[#121620]">
+                            <img src="/book1.jpg" alt="ОГЛЕДАЛОТО" className="w-full h-full object-cover opacity-90 transition-opacity hover:opacity-100" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.5; }} />
+                        </div>
+                        {/* Book 2 */}
+                        <div className="absolute z-20 w-64 aspect-[3/4] shadow-[0_20px_50px_rgba(201,169,97,0.3)] transform rotate-6 translate-x-8 transition-transform duration-700 group-hover:rotate-12 group-hover:translate-x-16 rounded-lg overflow-hidden border border-rt-gold/40 bg-[#121620]">
+                            <img src="/book2.jpg" alt="СЪЗДАТЕЛЯТ" className="w-full h-full object-cover opacity-90 transition-opacity hover:opacity-100" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.5; }} />
+                        </div>
                     </div>
                 </div>
             </div>
