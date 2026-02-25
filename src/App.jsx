@@ -3,47 +3,78 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Features from './components/Features';
+import Distinction from './components/Distinction';
+import BooksShowcase from './components/BooksShowcase';
+import ProcessTimeline from './components/ProcessTimeline';
 import Philosophy from './components/Philosophy';
-import Protocol from './components/Protocol';
-import Footer from './components/Footer';
+import SocialProofAndComparison from './components/SocialProofAndComparison';
+import FaqAndFooter from './components/FaqAndFooter';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const appRef = useRef(null);
+  const scrollIndicatorRef = useRef(null);
 
   useEffect(() => {
-    // Top level GSAP context for the whole app
+    // Console Easter Eggs
+    console.log("%c369 | φ | ∞", "color: #C9A961; font-family: monospace; font-size: 16px;");
+    console.log("%cЧислата не са случайни. Нищо тук не е случайно.", "color: #8A8A8A; font-family: monospace; font-size: 12px;");
+
     const ctx = gsap.context(() => {
-      // Any global animations can go here
+      // Custom Scroll Indicator Logic (Golden line on the right)
+      gsap.to(scrollIndicatorRef.current, {
+        height: "100%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: document.body,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0,
+          onUpdate: (self) => {
+            // At 61.8% scroll depth (φ), flash brighter gold
+            if (self.progress >= 0.617 && self.progress <= 0.619) {
+              gsap.to(scrollIndicatorRef.current, { backgroundColor: "#FFD700", duration: 0.1, yoyo: true, repeat: 1 });
+            }
+          }
+        }
+      });
     }, appRef);
 
-    return () => ctx.revert(); // clean up all animations
+    return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={appRef} className="relative min-h-screen font-jakarta bg-nura-cream text-nura-charcoal selection:bg-nura-moss selection:text-nura-cream">
+    <div ref={appRef} className="relative min-h-screen bg-rt-void text-rt-cream overflow-x-hidden">
       {/* Global CSS Noise Overlay */}
-      <div className="noise-overlay fixed inset-0 pointer-events-none z-[9999] opacity-[0.05]">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full opacity-50">
+      <div className="noise-overlay fixed inset-0 pointer-events-none z-[9999]">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full opacity-100">
           <filter id="noiseFilter">
-            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+            <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" />
           </filter>
           <rect width="100%" height="100%" filter="url(#noiseFilter)" />
         </svg>
       </div>
 
+      {/* Golden Scroll Indicator */}
+      <div className="fixed top-0 right-0 w-[2px] h-full bg-rt-charcoal z-[9998]">
+        <div ref={scrollIndicatorRef} className="w-full h-0 bg-rt-gold" />
+      </div>
+
+      {/* Global Easter Egg hidden in source */}
+      {/* 369 | φ | 1.618 | Fibonacci | Моят свят се грижи за мен. */}
+
       <Navbar />
 
       <main>
         <Hero />
-        <Features />
+        <Distinction />
+        <BooksShowcase />
+        <ProcessTimeline />
         <Philosophy />
-        <Protocol />
+        <SocialProofAndComparison />
+        <FaqAndFooter />
       </main>
-
-      <Footer />
     </div>
   );
 }

@@ -6,17 +6,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Philosophy = () => {
     const sectionRef = useRef(null);
+    const textLeftRef = useRef(null);
+    const textRightRef = useRef(null);
+    const conclusionRef = useRef(null);
     const bgRef = useRef(null);
-    const text1Ref = useRef(null);
-    const text2Ref = useRef(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
             // Background Parallax
             gsap.fromTo(bgRef.current,
-                { yPercent: -20 },
+                { yPercent: -15 },
                 {
-                    yPercent: 20,
+                    yPercent: 15,
                     ease: "none",
                     scrollTrigger: {
                         trigger: sectionRef.current,
@@ -27,69 +28,86 @@ const Philosophy = () => {
                 }
             );
 
-            // Text Reveal
+            // Split Text GSAP reveals
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    start: "top center",
-                    end: "center center",
-                    scrub: 1
+                    start: "top 40%",
                 }
             });
 
-            tl.fromTo(text1Ref.current,
-                { opacity: 0, y: 50 },
-                { opacity: 0.5, y: -20, duration: 1 }
+            tl.fromTo(textLeftRef.current,
+                { x: -55, autoAlpha: 0 },
+                { x: 0, autoAlpha: 1, duration: 1.2, ease: "power2.out" }
             )
-                .fromTo(text2Ref.current,
-                    { opacity: 0, scale: 0.9, y: 50 },
-                    { opacity: 1, scale: 1, y: 0, duration: 1.5, ease: "power2.out" },
-                    "-=0.5"
+                .fromTo(textRightRef.current,
+                    { x: 55, autoAlpha: 0 },
+                    { x: 0, autoAlpha: 1, duration: 1.2, ease: "power2.out" },
+                    "-=0.6"
+                )
+                .fromTo(conclusionRef.current,
+                    { y: 34, autoAlpha: 0 },
+                    { y: 0, autoAlpha: 1, duration: 1, ease: "power3.out" },
+                    "+=0.8" // automatic delay to emphasize the conclusion
+                )
+                .to(conclusionRef.current.querySelector('.gold-sweep'),
+                    { className: "+=gold-sweep active" },
+                    "-=0.2"
                 );
 
         }, sectionRef);
-
         return () => ctx.revert();
     }, []);
 
     return (
         <section
-            id="philosophy"
             ref={sectionRef}
-            className="relative w-full h-[120dvh] bg-nura-charcoal overflow-hidden flex flex-col items-center justify-center text-center px-8"
+            className="relative w-full py-48 bg-rt-obsidian overflow-hidden"
         >
-            {/* Background Parallax Image */}
-            <div className="absolute inset-0 z-0">
-                <div
-                    ref={bgRef}
-                    className="w-full h-[140%] -top-[20%] relative opacity-30 select-none pointer-events-none"
-                >
-                    <img
-                        src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2074&auto=format&fit=crop"
-                        alt="Organic Texture"
-                        className="w-full h-full object-cover object-center mix-blend-overlay"
-                    />
+            {/* Background Parallax Image / Generative geometry hint */}
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]">
+                <div ref={bgRef} className="w-full h-[130%] -top-[15%] relative">
+                    <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        {/* Abstract massive golden geometry */}
+                        <path d="M 0 50 Q 50 0 100 50 T 0 50" fill="none" stroke="var(--color-rt-gold)" strokeWidth="0.2" />
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="var(--color-rt-gold)" strokeWidth="0.1" />
+                    </svg>
                 </div>
-                <div className="absolute inset-0 bg-nura-charcoal/80 mix-blend-multiply" />
             </div>
 
-            <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
-                <p className="font-mono text-nura-clay uppercase tracking-[0.3em] text-xs mb-12">The Manifesto</p>
+            <div className="relative z-10 max-w-6xl mx-auto px-8 flex flex-col items-center">
 
-                <h2
-                    ref={text1Ref}
-                    className="font-jakarta text-2xl md:text-4xl text-white/50 mb-8 font-light"
-                >
-                    Modern medicine asks: <span className="italic">What is wrong?</span>
-                </h2>
+                <div className="w-full grid-golden gap-16 md:gap-8 mb-[89px]">
 
-                <h2
-                    ref={text2Ref}
-                    className="font-garamond italic text-5xl md:text-8xl lg:text-9xl text-nura-cream font-medium leading-[0.9]"
-                >
-                    We ask:<br />
-                    What is <span className="text-nura-moss font-bold not-italic font-jakarta tracking-tight">optimal?</span>
-                </h2>
+                    {/* Left Text */}
+                    <div ref={textLeftRef} className="flex flex-col items-start opacity-0">
+                        <p className="font-outfit text-rt-ash text-sm mb-4 uppercase tracking-widest pl-4 border-l border-rt-ash/20">
+                            Популярната „манифестация" ти казва:
+                        </p>
+                        <h2 className="font-cormorant italic text-rt-silver text-3xl md:text-5xl leading-tight opacity-70">
+                            „Привличаш с енергия<br />и вибрации."
+                        </h2>
+                    </div>
+
+                    {/* Right Text */}
+                    <div ref={textRightRef} className="flex flex-col items-end opacity-0text-right pt-16 md:pt-32">
+                        <p className="font-outfit text-rt-gold/70 text-sm mb-4 uppercase tracking-widest pr-4 border-r border-rt-gold/30 w-full text-right">
+                            Тази система ти казва:
+                        </p>
+                        <h2 className="font-cormorant italic text-rt-gold text-4xl md:text-6xl leading-tight text-right drop-shadow-[0_0_20px_rgba(201,169,97,0.1)]">
+                            „Избираш от поле от вече съществуващи варианти."
+                        </h2>
+                    </div>
+
+                </div>
+
+                {/* Center Conclusion */}
+                <div ref={conclusionRef} className="opacity-0">
+                    <h3 className="font-jakarta font-bold text-rt-cream text-3xl md:text-5xl tracking-normal">
+                        <span className="sweep-target gold-sweep">Разликата е всичко.</span>
+                    </h3>
+                </div>
+
             </div>
         </section>
     );
