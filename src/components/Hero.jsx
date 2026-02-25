@@ -112,6 +112,21 @@ const Hero = () => {
                 { height: 34, duration: 1.5, ease: "power2.inOut", repeat: -1, yoyo: true }
             );
 
+            // Hero Book Floating Animation
+            gsap.fromTo(".hero-book",
+                { y: 30, autoAlpha: 0, rotationY: -15, rotationX: 5 },
+                { y: 0, autoAlpha: 1, rotationY: 0, rotationX: 0, duration: 1.618, ease: "power3.out", delay: 0.8 }
+            );
+
+            gsap.to(".hero-book-float", {
+                y: -13,
+                rotationZ: 1,
+                duration: 3.4,
+                ease: "sine.inOut",
+                repeat: -1,
+                yoyo: true
+            });
+
         }, containerRef);
 
         return () => ctx.revert();
@@ -178,7 +193,25 @@ const Hero = () => {
                     </div>
                 </div>
 
-                {/* Right Column handles absolutely nothing per spec, Hero content is bottom left */}
+                {/* Right Column (Visual Anchor) */}
+                <div className="hidden md:flex justify-end items-end pb-[10vh]">
+                    <div className="hero-book relative w-full max-w-[420px] aspect-[4/5] perspective-1000">
+                        <div className="hero-book-float relative w-full h-full rounded-[2rem] overflow-hidden border border-rt-gold/30 shadow-[0_0_80px_rgba(201,169,97,0.15)] group">
+                            {/* Glow from behind the book */}
+                            <div className="absolute inset-0 bg-rt-gold/20 blur-[50px] -z-10 group-hover:bg-rt-gold/30 transition-all duration-1000"></div>
+
+                            {/* The actual image */}
+                            <img
+                                src="/book_mockup_1_1772011897678.png"
+                                alt="Reality Transurfing 369 System Mockup"
+                                className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100 mix-blend-lighten"
+                            />
+
+                            {/* Geometric overlay line */}
+                            <div className="absolute top-0 right-1/4 w-[1px] h-full bg-gradient-to-b from-transparent via-rt-gold/50 to-transparent opacity-50"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* Subtle Scroll Indicator */}

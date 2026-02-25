@@ -60,7 +60,7 @@ const BooksShowcase = () => {
 
                         {/* Book Image Placeholder */}
                         <div className="w-full max-w-[180px] aspect-[3/4] mb-8 rounded-lg overflow-hidden border border-rt-silver/20 shadow-[0_10px_30px_rgba(0,0,0,0.8)] transform transition-transform group-hover:scale-105 group-hover:-rotate-2 bg-[#121620]">
-                            <img src="/book1.jpg" alt="ОГЛЕДАЛОТО Книга" className="w-full h-full object-cover opacity-90 transition-all hover:opacity-100" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.4; }} />
+                            <img src="/media__1772006052611.jpg" alt="ОГЛЕДАЛОТО Книга" className="w-full h-full object-cover opacity-90 transition-all hover:opacity-100" />
                         </div>
 
                         <ul className="flex flex-col gap-3 text-rt-silver text-sm text-left w-full mb-10">
@@ -93,10 +93,10 @@ const BooksShowcase = () => {
                         {/* Bundle Image Stack Placeholder */}
                         <div className="flex justify-center items-center mb-10 relative h-48 w-full max-w-[240px]">
                             <div className="absolute w-[110px] aspect-[3/4] rounded-lg overflow-hidden border border-rt-silver/20 transform -rotate-12 -translate-x-12 shadow-2xl opacity-90 transition-all duration-500 bg-[#121620] group-hover:-rotate-[16deg] group-hover:-translate-x-14">
-                                <img src="/book1.jpg" className="w-full h-full object-cover" alt="Книга 1" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.5; }} />
+                                <img src="/media__1772006052611.jpg" className="w-full h-full object-cover" alt="Книга 1" />
                             </div>
                             <div className="absolute w-[120px] aspect-[3/4] rounded-lg overflow-hidden border border-rt-gold/40 transform rotate-6 translate-x-8 shadow-[0_20px_40px_rgba(201,169,97,0.2)] z-10 transition-all duration-500 bg-[#121620] group-hover:rotate-12 group-hover:translate-x-10">
-                                <img src="/book2.jpg" className="w-full h-full object-cover" alt="Книга 2" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.5; }} />
+                                <img src="/media__1772006057356.jpg" className="w-full h-full object-cover" alt="Книга 2" />
                             </div>
                         </div>
 
@@ -130,7 +130,7 @@ const BooksShowcase = () => {
 
                         {/* Book Image Placeholder */}
                         <div className="w-full max-w-[180px] aspect-[3/4] mb-8 rounded-lg overflow-hidden border border-rt-gold/20 shadow-[0_10px_30px_rgba(201,169,97,0.1)] transform transition-transform group-hover:scale-105 group-hover:rotate-2 bg-[#121620]">
-                            <img src="/book2.jpg" alt="СЪЗДАТЕЛЯТ Книга" className="w-full h-full object-cover opacity-90 transition-all hover:opacity-100" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop'; e.target.style.opacity = 0.4; }} />
+                            <img src="/media__1772006057356.jpg" alt="СЪЗДАТЕЛЯТ Книга" className="w-full h-full object-cover opacity-90 transition-all hover:opacity-100" />
                         </div>
 
                         <ul className="flex flex-col gap-3 text-rt-cream text-sm text-left w-full mb-10">

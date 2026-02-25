@@ -54,25 +54,25 @@
 }
 
 @theme {
-  --color-void: var(--void);
-  --color-obsidian: var(--obsidian);
-  --color-gold: var(--gold);
-  --color-gold-bright: var(--gold-bright);
-  --color-gold-dim: var(--gold-dim);
-  --color-silver: var(--silver);
-  --color-silver-dim: var(--silver-dim);
-  --color-cream: var(--cream);
-  --color-ash: var(--ash);
-  --color-ash-dim: var(--ash-dim);
-  --color-surface: var(--surface);
-  --color-surface-hover: var(--surface-hover);
-  --color-success: var(--success);
-  --color-strikethrough: var(--strikethrough);
+  --color-rt-void: var(--void);
+  --color-rt-obsidian: var(--obsidian);
+  --color-rt-gold: var(--gold);
+  --color-rt-gold-bright: var(--gold-bright);
+  --color-rt-gold-dim: var(--gold-dim);
+  --color-rt-silver: var(--silver);
+  --color-rt-silver-dim: var(--silver-dim);
+  --color-rt-cream: var(--cream);
+  --color-rt-ash: var(--ash);
+  --color-rt-ash-dim: var(--ash-dim);
+  --color-rt-surface: var(--surface);
+  --color-rt-surface-hover: var(--surface-hover);
+  --color-rt-success: var(--success);
+  --color-rt-strikethrough: var(--strikethrough);
 
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-body: 'Outfit', system-ui, sans-serif;
-  --font-data: 'JetBrains Mono', 'Courier New', monospace;
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-jakarta: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-outfit: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 
   --spacing-fib-1: var(--sp-1);
   --spacing-fib-2: var(--sp-2);
