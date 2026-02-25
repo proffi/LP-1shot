@@ -41,28 +41,7 @@ const FaqAndFooter = () => {
     return (
         <>
             {/* FAQ SECTION: "The Interrogation" */}
-            <section id="въпроси" className="w-full py-32 px-4 md:px-8 flex flex-col items-center relative overflow-hidden" style={{
-                background: 'linear-gradient(180deg, #0c1020 0%, #080a12 50%, #050710 100%)'
-            }}>
-                {/* Layer 2: Tight Spotlight */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-full pointer-events-none z-0 mix-blend-screen" style={{
-                    background: 'radial-gradient(ellipse 50% 100% at 50% 0%, rgba(201,169,97,0.05) 0%, transparent 100%)'
-                }} />
-
-                {/* Layer 3: Vertical Pillars (Left & Right margins) */}
-                <div className="absolute top-0 left-[15%] w-[1px] h-full bg-[rgba(232,232,232,0.03)] pointer-events-none hidden md:block" />
-                <div className="absolute top-0 right-[15%] w-[1px] h-full bg-[rgba(232,232,232,0.03)] pointer-events-none hidden md:block" />
-
-                {/* Layer 4: Noise */}
-                <div className="absolute inset-0 pointer-events-none z-0 mix-blend-overlay opacity-[0.035]">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                        <filter id="faqNoise">
-                            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" />
-                        </filter>
-                        <rect width="100%" height="100%" filter="url(#faqNoise)" />
-                    </svg>
-                </div>
-
+            <section id="въпроси" className="w-full py-32 px-4 md:px-8 flex flex-col items-center relative overflow-hidden" style={{ backgroundColor: 'transparent' }}>
                 <div className="max-w-3xl mx-auto w-full relative z-10">
                     <h2 className="font-cormorant italic font-bold text-rt-silver text-4xl md:text-5xl mb-16 text-center">Преди да вземеш решение.</h2>
                     <div className="flex flex-col gap-4">
@@ -74,20 +53,7 @@ const FaqAndFooter = () => {
             </section>
 
             {/* FINAL CTA SECTION: "The Choice" */}
-            <section ref={ctaRef} className="relative w-full min-h-[100dvh] bg-rt-obsidian flex flex-col items-center justify-center py-32 px-8 overflow-hidden">
-
-                {/* Generative Geometry Background (More prominent) */}
-                <div className="absolute inset-0 z-0 pointer-events-none opacity-15">
-                    <svg className="w-full h-full text-rt-gold" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-                        <g stroke="currentColor" fill="none" strokeWidth="0.1" opacity="0.3">
-                            <circle cx="50" cy="50" r="45" />
-                            <polygon points="50,5 93.3,75 6.7,75" />
-                            <polygon points="50,95 6.7,25 93.3,25" />
-                            {/* 369 embedded spiral */}
-                            <path d="M 50 50 Q 55 45 60 50 T 50 65 Q 30 50 50 30 T 80 50" />
-                        </g>
-                    </svg>
-                </div>
+            <section ref={ctaRef} className="relative w-full min-h-[100dvh] bg-transparent flex flex-col items-center justify-center py-32 px-8 overflow-hidden">
 
                 <div className="relative z-10 w-full max-w-4xl mx-auto text-center flex flex-col items-center">
                     <h2 className="cta-line-1 font-jakarta font-bold text-rt-silver text-2xl mb-4">Реалността е огледало.</h2>
@@ -116,35 +82,7 @@ const FaqAndFooter = () => {
             </section>
 
             {/* FOOTER: "The Event Horizon" */}
-            <footer className="w-full px-8 pt-24 pb-8 border-t border-rt-silver-dim/10 text-rt-cream z-20 relative overflow-hidden" style={{
-                backgroundColor: '#000000'
-            }}>
-                {/* Layer 2: Bottom Edge Gold Gradient (The Horizon) */}
-                <div className="absolute bottom-0 left-0 w-full h-[300px] pointer-events-none z-0" style={{
-                    background: 'linear-gradient(0deg, rgba(201,169,97,0.08) 0%, transparent 100%)'
-                }} />
-
-                {/* Layer 3: Very Slow Ascension Particles */}
-                <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-                    {[...Array(10)].map((_, i) => (
-                        <div key={`ascend-${i}`} className="absolute w-[2px] h-[2px] rounded-full bg-[rgba(201,169,97,0.3)] animate-[ascend_30s_infinite_linear]" style={{
-                            left: `${Math.random() * 100}%`,
-                            bottom: `-10px`,
-                            animationDelay: `${-(Math.random() * 30)}s`
-                        }} />
-                    ))}
-                </div>
-
-                {/* Layer 4: Noise */}
-                <div className="absolute inset-0 pointer-events-none z-0 mix-blend-overlay opacity-[0.05]">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                        <filter id="footerNoise">
-                            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" />
-                        </filter>
-                        <rect width="100%" height="100%" filter="url(#footerNoise)" />
-                    </svg>
-                </div>
-
+            <footer className="w-full px-8 pt-24 pb-8 border-t border-rt-silver-dim/10 text-rt-cream z-20 relative overflow-hidden" style={{ backgroundColor: 'transparent' }}>
                 <style>{`@keyframes ascend { from { transform: translateY(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } to { transform: translateY(-300px); opacity: 0; } }`}</style>
 
                 <div className="max-w-7xl mx-auto relative z-10">

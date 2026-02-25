@@ -140,18 +140,8 @@ const Hero = () => {
     return (
         <section
             ref={containerRef}
-            className="relative w-full h-[100dvh] overflow-hidden bg-rt-void flex items-end pb-[15vh] md:pb-[20vh]"
+            className="relative w-full h-[100dvh] overflow-hidden bg-transparent flex items-end pb-[15vh] md:pb-[20vh]"
         >
-            {/* Background Image is removed in FAVOR of pure dark void + geometric spiral */}
-            <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0A0E1A] to-[#000000] pointer-events-none" />
-
-            <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_30%_70%,rgba(10,14,26,0)_0%,rgba(0,0,0,0.7)_70%)] pointer-events-none" />
-
-            {/* Geometric spiral has 5-8% opacity in hero per spec */}
-            <div ref={canvasContainerRef} className="absolute inset-0 z-0 pointer-events-none opacity-[0.05]">
-                <GeometricBackground />
-            </div>
-
             <div className="relative z-10 w-full px-8 md:px-16 grid-golden mx-auto max-w-7xl">
                 {/* Left Column (38.2% visual weight proxy) */}
                 <div className="flex flex-col items-start justify-end w-full md:w-[220%]"> {/* Span across slightly on desktop for drama */}
