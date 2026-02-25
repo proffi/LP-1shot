@@ -74,13 +74,13 @@ const ProcessTimeline = () => {
                     });
                 }
             });
-        }, sectionRef);
+        }, containerRef);
         return () => ctx.revert();
     }, []);
 
     return (
         <section
-            ref={sectionRef}
+            ref={containerRef}
             id="системата"
             className="relative w-full bg-[#0c1018] py-32 overflow-hidden border-y border-rt-silver-dim/10"
         >
