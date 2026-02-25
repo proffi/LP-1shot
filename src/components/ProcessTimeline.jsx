@@ -84,9 +84,13 @@ const ProcessTimeline = () => {
             id="системата"
             className="relative w-full bg-[#0c1018] py-32 overflow-hidden border-y border-rt-silver-dim/10"
         >
-            {/* Subtle Grid Overlay */}
-            <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(201,169,97,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,97,0.2) 1px, transparent 1px)', backgroundSize: '55px 55px' }} />
-            <div className="max-w-7xl mx-auto px-8 md:px-16 mb-24 text-center">
+            {/* Highly Visible Grid Overlay */}
+            <div className="absolute inset-0 z-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(201,169,97,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,97,0.1) 1px, transparent 1px)', backgroundSize: '55px 55px' }} />
+
+            {/* Glowing Orb in Center */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-rt-gold/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div className="max-w-7xl mx-auto px-8 md:px-16 mb-24 text-center relative z-10">
                 <h2 className="font-cormorant italic text-rt-gold text-4xl md:text-5xl mb-6">Ден по ден. Стъпка по стъпка.</h2>
                 <p className="font-outfit text-rt-cream text-lg max-w-2xl mx-auto opacity-80">
                     Не е книга за четене. Това е система за работа. 89 дни. Ден по ден.

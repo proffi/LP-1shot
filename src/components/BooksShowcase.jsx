@@ -43,7 +43,7 @@ const BooksShowcase = () => {
         <section
             ref={containerRef}
             id="книгите"
-            className="relative w-full bg-[radial-gradient(ellipse_at_top,_var(--color-rt-surface)_0%,_var(--color-rt-void)_100%)] py-24 px-8 md:px-16"
+            className="relative w-full bg-[radial-gradient(ellipse_at_top,_#211812_0%,_var(--color-rt-void)_100%)] py-24 px-8 md:px-16"
         >
             <div className="max-w-7xl mx-auto flex flex-col items-center gap-16">
 

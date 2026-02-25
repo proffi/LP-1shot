@@ -48,9 +48,16 @@ const Philosophy = () => {
     return (
         <section
             ref={sectionRef}
-            className="w-full bg-gradient-to-b from-[#0c1018] to-rt-obsidian py-[144px] px-8 md:px-16 border-y border-rt-silver-dim/10 relative"
+            className="w-full bg-[#07090D] py-[144px] px-8 md:px-16 border-y border-rt-silver-dim/10 relative overflow-hidden"
         >
-            <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 relative">
+            {/* Massive Watermark Typography */}
+            <div className="absolute -left-20 top-[10%] opacity-[0.03] text-[20vw] font-cormorant font-bold italic text-white pointer-events-none leading-none select-none">
+                ОГЛЕДАЛОТО
+            </div>
+            {/* Top gold soft glow */}
+            <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-rt-gold/10 to-transparent pointer-events-none blur-3xl" />
+
+            <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 relative z-10">
 
                 {/* Vertical Geometric Divider (Desktop only) */}
                 <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-px bg-rt-silver-dim/10">

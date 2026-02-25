@@ -96,9 +96,12 @@ const Distinction = () => {
         <section
             ref={containerRef}
             id="разликата"
-            className="relative w-full bg-gradient-to-b from-rt-void to-[#05070a] py-[144px] px-8 md:px-16"
+            className="relative w-full bg-gradient-to-b from-rt-void to-[#0A1015] py-[144px] px-8 md:px-16 overflow-hidden"
         >
-            <div className="max-w-7xl mx-auto flex flex-col items-center">
+            {/* Glowing Split Divider Background */}
+            <div className="absolute top-0 bottom-0 left-1/2 w-[1px] bg-gradient-to-b from-transparent via-rt-gold/20 to-transparent shadow-[0_0_30px_rgba(201,169,97,0.4)] pointer-events-none hidden md:block" />
+
+            <div className="max-w-7xl mx-auto flex flex-col items-center relative z-10">
 
                 <div className="w-full flex flex-col md:flex-row gap-16 relative mb-32">
 

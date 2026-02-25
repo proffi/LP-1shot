@@ -56,9 +56,11 @@ const ContentPreview = () => {
     return (
         <section
             ref={containerRef}
-            className="w-full bg-gradient-to-b from-rt-void to-[#0c1018] py-32 px-8 md:px-16 border-b border-rt-silver-dim/10 relative overflow-hidden"
+            className="w-full bg-gradient-to-b from-rt-void to-[#10131A] py-32 px-8 md:px-16 border-b border-rt-silver-dim/10 relative overflow-hidden"
         >
-            <div className="absolute inset-0 z-0 bg-gradient-to-b from-rt-surface to-rt-void opacity-50" />
+            {/* Diagonal geometric cuts */}
+            <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-gradient-to-bl from-rt-gold/5 to-transparent skew-x-12 transform origin-top-right pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[50%] h-[50%] bg-gradient-to-tr from-rt-silver/5 to-transparent -skew-x-12 transform origin-bottom-left pointer-events-none" />
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-24">

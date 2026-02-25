@@ -31,10 +31,10 @@ const ProblemAgitation = () => {
     return (
         <section
             ref={containerRef}
-            className="w-full bg-[radial-gradient(ellipse_at_center,_#1a100c_0%,_var(--color-rt-obsidian)_100%)] py-[144px] px-8 md:px-16 border-y border-rt-strikethrough/10 relative overflow-hidden"
+            className="w-full bg-[radial-gradient(ellipse_at_center,_#2A1A10_0%,_var(--color-rt-obsidian)_100%)] py-[144px] px-8 md:px-16 border-y border-rt-gold-dim/30 relative overflow-hidden"
         >
-            {/* Faint Amber Tint for agitation */}
-            <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#D4A843]/5 to-transparent pointer-events-none" />
+            {/* Strong Warning Glow for Agitation */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-full bg-[radial-gradient(ellipse_at_top,_rgba(201,169,97,0.15)_0%,_transparent_70%)] pointer-events-none" />
 
             <div
                 ref={contentRef}
