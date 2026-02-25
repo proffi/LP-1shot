@@ -34,7 +34,7 @@ const SolutionReveal = () => {
             className="w-full bg-[#0c1018] py-[144px] px-8 md:px-16 border-t border-rt-gold/10 relative overflow-hidden"
         >
             {/* Continuous Sacred Geometry Grid */}
-            <div className="absolute inset-0 z-0 bg-grid-gold pointer-events-none opacity-70 mix-blend-overlay" />
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-70 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(201, 169, 97, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 169, 97, 0.15) 1px, transparent 1px)', backgroundSize: '55px 55px', backgroundAttachment: 'fixed' }} />
             <div
                 ref={contentRef}
                 className="max-w-4xl mx-auto flex flex-col items-center text-center"

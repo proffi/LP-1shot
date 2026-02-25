@@ -51,7 +51,7 @@ const Philosophy = () => {
             className="w-full bg-[#07090D] py-[144px] px-8 md:px-16 border-y border-rt-silver-dim/10 relative overflow-hidden"
         >
             {/* Continuous Sacred Geometry Grid */}
-            <div className="absolute inset-0 z-0 bg-grid-silver pointer-events-none opacity-50 mix-blend-overlay" />
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-50 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(232, 232, 232, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 232, 232, 0.1) 1px, transparent 1px)', backgroundSize: '89px 89px', backgroundAttachment: 'fixed' }} />
             {/* Massive Watermark Typography */}
             <div className="absolute -left-20 top-[10%] opacity-[0.03] text-[20vw] font-cormorant font-bold italic text-white pointer-events-none leading-none select-none">
                 ОГЛЕДАЛОТО

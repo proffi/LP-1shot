@@ -46,7 +46,7 @@ const BooksShowcase = () => {
             className="relative w-full bg-[radial-gradient(ellipse_at_top,_#211812_0%,_var(--color-rt-void)_100%)] py-24 px-8 md:px-16 overflow-hidden"
         >
             {/* Continuous Sacred Geometry Grid */}
-            <div className="absolute inset-0 z-0 bg-grid-silver pointer-events-none opacity-40 mix-blend-overlay" />
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-40 mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(rgba(232, 232, 232, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 232, 232, 0.2) 1px, transparent 1px)', backgroundSize: '89px 89px', backgroundAttachment: 'fixed' }} />
             <div className="max-w-7xl mx-auto flex flex-col items-center gap-16">
 
                 <div className="w-full flex flex-col md:flex-row gap-8">
